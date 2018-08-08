@@ -22,9 +22,38 @@
     <link rel="stylesheet" href="/adminTemplate/css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
 
+    {{--表格样式--}}
+    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/table-style.css" />
+    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/basictable.css" />
+    <script type="text/javascript" src="/adminTemplate/js/jquery.basictable.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#table').basictable();
 
+            $('#table-breakpoint').basictable({
+                breakpoint: 768
+            });
 
-    {{--添加管理员用到的--}}
+            $('#table-swap-axis').basictable({
+                swapAxis: true
+            });
+
+            $('#table-force-off').basictable({
+                forceResponsive: false
+            });
+
+            $('#table-no-resize').basictable({
+                noResize: true
+            });
+
+            $('#table-two-axis').basictable();
+
+            $('#table-max-height').basictable({
+                tableWrapper: true
+            });
+        });
+    </script>
+    {{--表格样式结束--}}
 </head>
 <body>
 <div class="page-container">
@@ -247,10 +276,14 @@
             </div>
             <!--inner block end here-->
 
+            <div class="clearfix"></div>
 
-
+            <div class="copyrights">
+                <p>Copyright &copy; 2016.Company name All rights reserved.More Templates </p>
+            </div>
 
         </div>
+
     </div>
     <!--//content-inner-->
     <!--/sidebar-menu-->
@@ -262,10 +295,20 @@
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu" >
+                <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>管理员管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+
+                    <ul id="menu-academico-sub" >
+                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a></li>
+                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_index'); ?>">管理员列表</a></li>
+                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员分级</a></li>
+                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_leader_create'); ?>">权限添加</a></li>
+                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_leader_index'); ?>">权限显示</a></li>
+
+                    </ul>
+                </li>
                 <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>用户管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
                     <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">管理员列表</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.create'); ?>">管理员添加</a></li>
+
                         <li id="menu-academico-avaliacoes" ><a href="">用户列表</a></li>
                         <li id="menu-academico-avaliacoes" ><a href="">用户添加</a></li>
                     </ul>
@@ -301,7 +344,9 @@
         </div>
     </div>
     <div class="clearfix"></div>
+
 </div>
+
 <script>
     var toggle = true;
 
@@ -322,6 +367,21 @@
         toggle = !toggle;
     });
 </script>
+
+<script>
+    $(document).ready(function() {
+        var navoffeset=$(".header-main").offset().top;
+        $(window).scroll(function(){
+            var scrollpos=$(window).scrollTop();
+            if(scrollpos >=navoffeset){
+                $(".header-main").addClass("fixed");
+            }else{
+                $(".header-main").removeClass("fixed");
+            }
+        });
+
+    });
+</script>
 <!--js -->
 <script src="/adminTemplate/js/jquery.nicescroll.js"></script>
 <script src="/adminTemplate/js/scripts.js"></script>
@@ -332,9 +392,7 @@
 <script src="/adminTemplate/js/raphael-min.js"></script>
 <script src="/adminTemplate/js/morris.js"></script>
 <!--copy rights start here-->
-<div class="copyrights">
-    <p>Copyright &copy; 2016.Company name All rights reserved.More Templates </p>
-</div>
+
 <!--COPY rights end here-->
 </body>
 </html>
