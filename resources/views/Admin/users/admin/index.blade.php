@@ -26,11 +26,21 @@
                 @foreach($users as $k=>$v)
                 <tr>
                     <td>{{$v->name}}</td>
-                    <td>{{$v->sex}}</td>
+                    <td>
+                        @if($v->sex==1)
+                            男
+                        @elseif($v->sex==2)
+                            女
+                        @elseif($v->sex==0)
+                            保密
+                        @endif
+                    </td>
                     <td>{{$v->date}}</td>
                     <td>{{$v->phone}}</td>
                     <td>{{$v->leader_who->leader_name}}</td>
-                    <td>{{$v->photo_path}}</td>
+                    <td>
+                        <img src="{{$v->photo_path}}" alt="头像" style="height: 40px;width: 40px">
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>

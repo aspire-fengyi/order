@@ -6,9 +6,51 @@
 @endsection
 @section('content')
 
-    <div class="inbox-mail">
-        {{--第一次遍历 将返回的有分级的数据其中的一级数据遍历出来--}}
-        @foreach ($users as $k => $v)
+    {{--导航--}}
+    <div class="bg-effect">
+        <ul class="bt-list">
+            @foreach ($users as $k => $v)
+                {{--做判断是因为第一个按钮和左边不对其，加了一个margin--}}
+                @if($k==0||$k==6)
+                <li id="" class="col-md-2 daohang" style="margin-left: -15px" ><a href="#" class="hvr-icon-pulse col-11 ">{{$v->leader_name}}</a></li>
+                @else
+                <li id="" class="col-md-2 daohang"  ><a href="#" class="hvr-icon-pulse col-11 ">{{$v->leader_name}}</a></li>
+                @endif
+            @endforeach
+
+        </ul>
+
+    </div>
+    {{--导航结束--}}
+
+    {{--js选项卡显示--}}
+    <script>
+        $(function(){
+            $('.daohang').click(function(){
+
+
+                var n =$(this).index();
+                console.log(n);
+                $('.xianshi').css('display','none');
+                $('.xianshi').eq(n).css('display','block');
+                $(this).children().removeClass('col-11').addClass('col-1');
+                $(this).siblings().children().removeClass('col-1').addClass('col-11');
+
+            })
+
+        })
+    </script>
+
+    {{--js选项卡结束--}}
+
+<div class="clearfix"> </div>
+
+
+    {{--第一次遍历 将返回的有分级的数据其中的一级数据遍历出来--}}
+    @foreach ($users as $k => $v)
+        <div class="xianshi">
+    <div class="inbox-mail " id="">
+
         <div class="col-md-4 compose w3layouts">
 
             {{--显示一级权限名称--}}
@@ -29,9 +71,9 @@
         </div>
         <div class="clearfix"> </div>
 
-        <div class="clearfix"> </div>
+
     </div>
-    <div style="margin-top: -40px">
+    <div style="margin-top: -50px">
     <div class="agile-grids">
         <!-- tables -->
 
@@ -101,7 +143,7 @@
                             </td>
                         </tr>
                         @endforeach
-                        @endforeach
+                    @endforeach
 
 
                 @endforeach
@@ -113,7 +155,8 @@
         </div>
         <!-- //tables -->
     </div>
-        @endforeach
-    </div>
 
+    </div>
+        </div>
+    @endforeach
 @endsection

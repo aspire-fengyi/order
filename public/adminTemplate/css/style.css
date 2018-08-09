@@ -1882,7 +1882,6 @@ a.button,a.button2{
 ul.bt-list li {
     display: inline-block;
     list-style: none;
-    width: 32%;
     margin: 2% 0;
 }
 ul.bt-list li a {
