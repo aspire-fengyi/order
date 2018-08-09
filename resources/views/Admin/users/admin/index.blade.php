@@ -29,7 +29,7 @@
                     <td>{{$v->sex}}</td>
                     <td>{{$v->date}}</td>
                     <td>{{$v->phone}}</td>
-                    <td>{{$v->leader_id}}</td>
+                    <td>{{$v->leader_who->leader_name}}</td>
                     <td>{{$v->photo_path}}</td>
                 </tr>
                 @endforeach

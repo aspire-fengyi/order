@@ -29,7 +29,7 @@ class IndexController extends Controller
     }
 
     //后台管理员创建路由AdminUsersAddRequest
-    function admin_add( AdminUsersAddRequest $request)
+    function admin_add(AdminUsersAddRequest $request)
     {
 
         //接收所有数据
@@ -105,17 +105,35 @@ class IndexController extends Controller
         //获取数据
         $users = Admin_user::all();
 
-        return view('Admin.users.admin.index',['users'=>$users]);
+        return view('Admin.users.admin.index', ['users' => $users]);
 
     }
+
+    //递归获取权限级别
+    static function getPidLeaders($pid = 1)
+    {
+        $data = Admin_leader::where('pid', $pid)->get();
+        //放置空数组
+        $arr = [];
+        foreach ($data as $key => $value) {
+            //在每一个数据中加入sub，如果有子分类
+            $value['sub'] = self::getPidLeaders($value->id);
+            //重新生成数组
+            $arr[] = $value;
+        }
+
+        return $arr;
+    }
+
 
     //后台管理员分级显示列表
     function admin_index_fenji()
     {
-        //获取数据
-        $users = Admin_user::all();
 
-        return view('Admin.users.admin.index_fenji',['users'=>$users]);
+        //获取权限中的数据，实现分类
+        $data = self::getPidLeaders(1);
+
+        return view('Admin.users.admin.index_fenji', ['users' => $data]);
 
     }
 
