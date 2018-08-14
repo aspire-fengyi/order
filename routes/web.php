@@ -39,6 +39,17 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 
+
+
+    //后台显示合作商路由
+    Route::get('/users/index','Admin\UsersController@index')->name('admin.users.index');
+
+    //后台添加合作商路由
+    Route::get('/users/create','Admin\UsersController@create')->name('admin.users.create');
+
+    //后台添加合作商处理路由
+    Route::post('/users/add','Admin\UsersController@add')->name('admin.users.add');
+
 });
 
 

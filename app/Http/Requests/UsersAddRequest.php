@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AdminUsersAddRequest extends FormRequest
+class UsersAddRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class AdminUsersAddRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,7 @@ class AdminUsersAddRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:admin_users|regex:/[\x4E00-\x9FA5\w]{1,16}/',
+            'name' => 'required|unique:users|regex:/[\x4E00-\x9FA5\w]{1,16}/',
 
             'sex' => 'required',
 
@@ -38,7 +38,14 @@ class AdminUsersAddRequest extends FormRequest
 
             'date' => 'required',
 
-            'leader_id' => 'required',
+            'addr'=>'required',
+
+            'addr_phone'=>'required',
+
+            'admin_user_name'=>'required',
+            'jibie'=>'required',
+
+
 
         ];
     }
@@ -47,7 +54,7 @@ class AdminUsersAddRequest extends FormRequest
     {
         return [
             'name.required' => '姓名必须填写',
-            'name.unique' => '管理员已存在',
+            'name.unique' => '合作商已存在',
             'name.regex' => '姓名格式不正确',
 
             'sex.required'  => '性别必须填写',
@@ -56,7 +63,6 @@ class AdminUsersAddRequest extends FormRequest
             'phone.regex'  => '手机号格式不正确',
 
             'photo.required'  => '头像未选择',
-//            'photo.image'  => '头像格式不正确',
 
             'password.required'  => '密码必须填写',
             'password.regex'  => '密码格式不正确',
@@ -66,7 +72,14 @@ class AdminUsersAddRequest extends FormRequest
 
             'date.required'  => '出生日期',
 
-            'leader_id.required'  => '管理级别必须填写',
+            'addr.required' => '收货地址必须填写',
+
+            'addr_phone.require' => '收货联系电话必须填写',
+
+            'admin_user_name.require'=>'所属管路员必须填写',
+
+            'jibie.require'=>'合作商级别必须选择'
+
         ];
     }
 }

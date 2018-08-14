@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Admin_leader extends Model
+class AdminLeader extends Model
 {
     //
     protected $table          = "admin_leaders";
@@ -12,7 +12,7 @@ class Admin_leader extends Model
 
     public function users()
     {
-        return $this->hasMany('App\Models\Admin_user','leader_id');
+        return $this->hasMany('App\Models\AdminUser','leader_id');
     }
 }
 

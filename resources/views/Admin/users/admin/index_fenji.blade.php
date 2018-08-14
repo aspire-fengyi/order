@@ -48,8 +48,8 @@
 
     {{--第一次遍历 将返回的有分级的数据其中的一级数据遍历出来--}}
     @foreach ($users as $k => $v)
-        <div class="xianshi">
-    <div class="inbox-mail " id="">
+        <div class="xianshi" @if($k==0) style="display: block" @else style="display: none" @endif>
+    <div class="inbox-mail " id="" >
 
         <div class="col-md-4 compose w3layouts">
 

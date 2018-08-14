@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Admin_leader;
-use App\Models\Admin_user;
+use App\Models\AdminLeader;
+use App\Models\AdminUser;
 use App\Http\Requests\AdminUsersAddRequest;
 use \Hash;
 use \DB;
@@ -48,7 +48,7 @@ class IndexController extends Controller
             $temp_name = time() . rand(1000, 9999) . '.' . $ext;
 
             //设置路径名称
-            $dir_name = '/users_photos/' . date('Ymd', time());
+            $dir_name = '/images/admin/admin_users_photos/' . date('Ymd', time());
 
             //往数据库中存储的名字 拼接路径方便存储.
             $photo_path = $dir_name . '/' . $temp_name;
@@ -63,31 +63,31 @@ class IndexController extends Controller
         }
 
         //用模型方法添加数据，实例化模型
-        $admin_user = new Admin_user;
+        $AdminUser = new AdminUser;
 
         //添加头像
-        $admin_user->photo_path = $data['photo_path'];
+        $AdminUser->photo_path = $data['photo_path'];
 
         //添加姓名
-        $admin_user->name = $data['name'];
+        $AdminUser->name = $data['name'];
 
         //添加性别
-        $admin_user->sex = $data['sex'];
+        $AdminUser->sex = $data['sex'];
 
         //添加电话
-        $admin_user->phone = $data['phone'];
+        $AdminUser->phone = $data['phone'];
 
         //添加密码
-        $admin_user->password = Hash::make($data['password']);
+        $AdminUser->password = Hash::make($data['password']);
 
         //添加日期
-        $admin_user->date = $data['date'];
+        $AdminUser->date = $data['date'];
 
         //添加leader_id 权限级别
-        $admin_user->leader_id = $data['leader_id'];
+        $AdminUser->leader_id = $data['leader_id'];
 
         //保存
-        $res = $admin_user->save();
+        $res = $AdminUser->save();
 
         if ($res) {
             return redirect('/admin/users/admin_index')->with('success', '添加成功');
@@ -103,7 +103,7 @@ class IndexController extends Controller
     function admin_index()
     {
         //获取数据
-        $users = Admin_user::all();
+        $users = AdminUser::all();
 
         return view('Admin.users.admin.index', ['users' => $users]);
 
@@ -112,7 +112,7 @@ class IndexController extends Controller
     //递归获取权限级别
     static function getPidLeaders($pid = 1)
     {
-        $data = Admin_leader::where('pid', $pid)->get();
+        $data = AdminLeader::where('pid', $pid)->get();
         //放置空数组
         $arr = [];
         foreach ($data as $key => $value) {
@@ -181,7 +181,7 @@ class IndexController extends Controller
     function admin_leader_add(Request $request)
     {
         //实例化模型
-        $leader_add = new Admin_leader;
+        $leader_add = new AdminLeader;
 
         $pid = $request->input('pid', 0);
 
@@ -190,7 +190,7 @@ class IndexController extends Controller
             $path = 0;
         } else {
             //子分类
-            $parent_data = Admin_leader::find($pid);
+            $parent_data = AdminLeader::find($pid);
             $path = $parent_data['path'] . ',' . $parent_data['id'];
         }
 
@@ -205,4 +205,8 @@ class IndexController extends Controller
         }
 
     }
+
+
+
+
 }

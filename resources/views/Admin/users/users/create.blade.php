@@ -1,7 +1,7 @@
 @extends('Admin.layout.index')
 @section('mulu')
 
-    <li class="breadcrumb-item"><a href="<?php echo route('admin.index'); ?>">首页</a><i class="fa fa-angle-right"></i>管理员管理 <i class="fa fa-angle-right"></i>管理员添加</li>
+    <li class="breadcrumb-item"><a href="<?php echo route('admin.index'); ?>">首页</a><i class="fa fa-angle-right"></i>合作商管理 <i class="fa fa-angle-right"></i>合作商添加</li>
 
 @endsection
 @section('content')
@@ -20,9 +20,9 @@
 
     {{--管理员添加--}}
     <div class="grid-form1">
-        <h3>管理员添加</h3>
+        <h3>合作商添加</h3>
         <div class="panel-body">
-            <form action="<?php echo route('admin.users.admin_add');?>" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <form action="<?php echo route('admin.users.add');?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <label class="col-md-2 control-label">姓名</label>
@@ -100,17 +100,53 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="selector1" class="col-sm-2 control-label">管理级别</label>
-                    <div class="col-sm-8">
 
-                        <select name="leader_id" id="selector1" class="form-control1">
-                            @foreach($leaders_data as $k=>$v)
-                                <option value="{{$v->id}}">{{$v->leader_name}}</option>
-                            @endforeach
+                <div class="form-group">
+                    <label class="col-md-2 control-label">默认收货地址</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-map-marker"></i>
+									</span>
+                            <input name="addr" type="text" class="form-control1" placeholder="请输入收货地址" required="" value="{{old('addr')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">默认收货电话</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-volume-control-phone"></i>
+									</span>
+                            <input name="addr_phone" type="text" class="form-control1" placeholder="请输入收货电话" required="" value="{{old('phone')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">所属管理员</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa  fa-user"></i>
+									</span>
+                            <input name="admin_user_name" type="text" class="form-control1" placeholder="请输入管理员姓名" required="" value="{{old('admin_user_name')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selector1" class="col-sm-2 control-label">经销商级别</label>
+                    <div class="col-sm-8">
+                        <select name="jibie" id="selector1" class="form-control1">
+                            <option value="">请选择</option>
+                            <option value="0">普通</option>
+                            <option value="1">市级代理</option>
+                            <option value="2">省级代理</option>
                         </select>
                     </div>
                 </div>
+
+
 
                 <div class="panel-footer">
                     <div class="row">
@@ -119,7 +155,6 @@
                             <input type="reset" class="btn-inverse btn" value="重置">
                         </div>
                     </div>
-
                 </div>
             </form>
         </div>

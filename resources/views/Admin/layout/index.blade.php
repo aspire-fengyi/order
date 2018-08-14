@@ -3,31 +3,38 @@
 <head>
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content=""/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <!-- Bootstrap Core CSS -->
-    <link href="/adminTemplate/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <link href="/adminTemplate/css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
     <!-- Custom CSS -->
-    <link href="/adminTemplate/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="/adminTemplate/css/style.css" rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" href="/adminTemplate/css/morris.css" type="text/css"/>
     <!-- Graph CSS -->
     <link href="/adminTemplate/css/font-awesome.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="/adminTemplate/js/jquery-2.1.4.min.js"></script>
     <!-- //jQuery -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet'
+          type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
-    <link rel="stylesheet" href="/adminTemplate/css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="/adminTemplate/css/icon-font.min.css" type='text/css'/>
     <!-- //lined-icons -->
 
     {{--表格样式--}}
-    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/table-style.css" />
-    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/basictable.css" />
+    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/table-style.css"/>
+    <link rel="stylesheet" type="text/css" href="/adminTemplate/css/basictable.css"/>
     <script type="text/javascript" src="/adminTemplate/js/jquery.basictable.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#table').basictable();
 
             $('#table-breakpoint').basictable({
@@ -74,13 +81,14 @@
                             <input type="submit" value="">
                         </form>
                     </div><!--//end-search-box-->
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="w3layouts-right">
                     <div class="profile_details_left"><!--notifications of menu start -->
                         <ul class="nofitications-dropdown">
                             <li class="dropdown head-dpdn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                            class="fa fa-envelope"></i><span class="badge">3</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="notification_header">
@@ -88,7 +96,8 @@
                                         </div>
                                     </li>
                                     <li><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in11.jpg" alt=""></div>
+                                            <div class="user_img"><img src="/adminTemplate/images/in11.jpg" alt="">
+                                            </div>
                                             <div class="notification_desc">
                                                 <p>Lorem ipsum dolor</p>
                                                 <p><span>1 hour ago</span></p>
@@ -96,7 +105,8 @@
                                             <div class="clearfix"></div>
                                         </a></li>
                                     <li class="odd"><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in10.jpg" alt=""></div>
+                                            <div class="user_img"><img src="/adminTemplate/images/in10.jpg" alt="">
+                                            </div>
                                             <div class="notification_desc">
                                                 <p>Lorem ipsum dolor </p>
                                                 <p><span>1 hour ago</span></p>
@@ -119,7 +129,8 @@
                                 </ul>
                             </li>
                             <li class="dropdown head-dpdn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                            class="fa fa-bell"></i><span class="badge blue">3</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="notification_header">
@@ -158,7 +169,8 @@
                                 </ul>
                             </li>
                             <li class="dropdown head-dpdn">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                            class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <div class="notification_header">
@@ -185,7 +197,8 @@
                                         </a></li>
                                     <li><a href="#">
                                             <div class="task-info">
-                                                <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                                                <span class="task-desc">Mobile App</span><span
+                                                        class="percentage">33%</span>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="progress progress-striped active">
@@ -194,7 +207,8 @@
                                         </a></li>
                                     <li><a href="#">
                                             <div class="task-info">
-                                                <span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
+                                                <span class="task-desc">Issues fixed</span><span
+                                                        class="percentage">80%</span>
                                                 <div class="clearfix"></div>
                                             </div>
                                             <div class="progress progress-striped active">
@@ -208,13 +222,13 @@
                                     </li>
                                 </ul>
                             </li>
-                            <div class="clearfix"> </div>
+                            <div class="clearfix"></div>
                         </ul>
-                        <div class="clearfix"> </div>
+                        <div class="clearfix"></div>
                     </div>
                     <!--notification menu end -->
 
-                    <div class="clearfix"> </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="profile_details w3l">
                     <ul>
@@ -232,15 +246,15 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu drp-mnu">
-                                <li> <a href="#"><i class="fa fa-cog"></i>设置</a> </li>
-                                <li> <a href="#"><i class="fa fa-user"></i>详情</a> </li>
-                                <li> <a href="#"><i class="fa fa-sign-out"></i> 退出</a> </li>
+                                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
+                                <li><a href="#"><i class="fa fa-user"></i>详情</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out"></i> 退出</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
 
-                <div class="clearfix"> </div>
+                <div class="clearfix"></div>
             </div>
             <!--heder end here-->
             {{--目录导航--}}
@@ -253,13 +267,13 @@
             {{--目录导航结束--}}
 
             <script>
-                $(document).ready(function() {
-                    var navoffeset=$(".header-main").offset().top;
-                    $(window).scroll(function(){
-                        var scrollpos=$(window).scrollTop();
-                        if(scrollpos >=navoffeset){
+                $(document).ready(function () {
+                    var navoffeset = $(".header-main").offset().top;
+                    $(window).scroll(function () {
+                        var scrollpos = $(window).scrollTop();
+                        if (scrollpos >= navoffeset) {
                             $(".header-main").addClass("fixed");
-                        }else{
+                        } else {
                             $(".header-main").removeClass("fixed");
                         }
                     });
@@ -294,50 +308,83 @@
 
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
-            <ul id="menu" >
-                <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>管理员管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
+            <ul id="menu">
+                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>权限管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
 
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_index'); ?>">管理员列表</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员分级</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_leader_create'); ?>">权限添加</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="<?php echo route('admin.users.admin_leader_index'); ?>">权限显示</a></li>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a
+                                    href="<?php echo route('admin.users.admin_leader_create'); ?>">权限添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a
+                                    href="<?php echo route('admin.users.admin_leader_index'); ?>">权限显示</a></li>
+                    </ul>
+                </li>
+                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>管理员管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a>
+                        </li>
+                        <li id="menu-academico-avaliacoes"><a
+                                    href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员显示</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index'); ?>">管理员列表</a>
+                        </li>
 
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>用户管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-
-                        <li id="menu-academico-avaliacoes" ><a href="">用户列表</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="">用户添加</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>合作商管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.create') ?>">合作商添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.index') ?>">合作商列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa  fa-gitlab" aria-hidden="true"></i><span>类别管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">类别列表</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="">类别添加</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa  fa-gitlab" aria-hidden="true"></i><span>产品类别管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="">产品类别添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="">产品类别列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa fa-envira" aria-hidden="true"></i><span>产品管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">产品列表</a></li>
-                        <li id="menu-academico-avaliacoes" ><a href="">产品添加</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa fa-envira" aria-hidden="true"></i><span>产品管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="">产品列表</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="">产品添加</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>订单管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">订单列表</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>订单管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="">订单列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>文章管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">文章管理</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>文章管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="">文章管理</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico" ><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>广告管理</span> <span class="fa fa-angle-right" style="float: right"></span><div class="clearfix"></div></a>
-                    <ul id="menu-academico-sub" >
-                        <li id="menu-academico-avaliacoes" ><a href="">广告管理</a></li>
+                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>广告管理</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="">广告管理</a></li>
                     </ul>
                 </li>
             </ul>
@@ -350,17 +397,15 @@
 <script>
     var toggle = true;
 
-    $(".sidebar-icon").click(function() {
-        if (toggle)
-        {
+    $(".sidebar-icon").click(function () {
+        if (toggle) {
             $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-            $("#menu span").css({"position":"absolute"});
+            $("#menu span").css({"position": "absolute"});
         }
-        else
-        {
+        else {
             $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-            setTimeout(function() {
-                $("#menu span").css({"position":"relative"});
+            setTimeout(function () {
+                $("#menu span").css({"position": "relative"});
             }, 400);
         }
 
@@ -369,13 +414,13 @@
 </script>
 
 <script>
-    $(document).ready(function() {
-        var navoffeset=$(".header-main").offset().top;
-        $(window).scroll(function(){
-            var scrollpos=$(window).scrollTop();
-            if(scrollpos >=navoffeset){
+    $(document).ready(function () {
+        var navoffeset = $(".header-main").offset().top;
+        $(window).scroll(function () {
+            var scrollpos = $(window).scrollTop();
+            if (scrollpos >= navoffeset) {
                 $(".header-main").addClass("fixed");
-            }else{
+            } else {
                 $(".header-main").removeClass("fixed");
             }
         });
