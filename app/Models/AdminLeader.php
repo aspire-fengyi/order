@@ -14,6 +14,11 @@ class AdminLeader extends Model
     {
         return $this->hasMany('App\Models\AdminUser','leader_id');
     }
+
+    public function hezuoshang()
+    {
+        return $this->hasMany('App\Models\User','leader_id');
+    }
 }
 
 

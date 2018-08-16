@@ -13,6 +13,13 @@
 //后台路由组
 
 Route::group(['prefix'=>'admin'],function(){
+
+    /**
+     *
+     * 管理员路由
+     *
+     */
+
     //首页路由
     Route::get('/','Admin\IndexController@index')->name('admin.index');
 
@@ -28,6 +35,22 @@ Route::group(['prefix'=>'admin'],function(){
     //后台分级显示管理员路由
     Route::get('/users/admin_index_fenji','Admin\IndexController@admin_index_fenji')->name('admin.users.admin_index_fenji');
 
+    //后台修改管理员信息路由
+    Route::get('/users/admin_edit/{id}','Admin\IndexController@admin_edit')->name('admin.users.admin_edit');
+
+    //后台修改管理员处理路由
+    Route::post('/users/admin_update/{id}','Admin\IndexController@admin_update')->name('admin.users.admin_update');
+
+    //后台删除管理员信息路由
+    Route::get('/users/admin_delete/{id}','Admin\IndexController@admin_delete')->name('admin.users.admin_delete');
+
+
+    /**
+     *
+     * 权限路由
+     *
+     */
+
     //后台添加权限路由
     Route::get('/users/admin_leader_create','Admin\IndexController@admin_leader_create')->name('admin.users.admin_leader_create');
 
@@ -37,9 +60,21 @@ Route::group(['prefix'=>'admin'],function(){
     //后台权限添加处理路由
     Route::post('/users/admin_leader_add','Admin\IndexController@admin_leader_add')->name('admin.users.admin_leader_add');
 
+    //后台修改权限路由
+    Route::get('/users/admin_leader_edit/{id}','Admin\IndexController@admin_leader_edit')->name('admin.users.admin_leader_edit');
+
+    //后台修改权限处理路由
+    Route::post('/users/admin_leader_update/{id}','Admin\IndexController@admin_leader_update')->name('admin.users.admin_leader_update');
+
+    //后台删除权限路由
+    Route::get('/users/admin_leader_delete/{id}','Admin\IndexController@admin_leader_delete')->name('admin.users.admin_leader_delete');
 
 
-
+    /**
+     *
+     * 合作商路由
+     *
+     */
 
     //后台显示合作商路由
     Route::get('/users/index','Admin\UsersController@index')->name('admin.users.index');
@@ -49,6 +84,49 @@ Route::group(['prefix'=>'admin'],function(){
 
     //后台添加合作商处理路由
     Route::post('/users/add','Admin\UsersController@add')->name('admin.users.add');
+
+    //后台显示合作商详情路由
+    Route::get('/users/show_info/{id}','Admin\UsersController@show_info')->name('admin.users.show_info');
+
+    //后台修改合作商路由
+    Route::get('/users/edit/{id}','Admin\UsersController@edit')->name('admin.users.edit');
+
+    //后台修改合作商处理路由
+    Route::post('/users/update/{id}','Admin\UsersController@update')->name('admin.users.update');
+
+    //后台删除合作商路由
+    Route::get('/users/delete/{id}','Admin\UsersController@delete')->name('admin.users.delete');
+
+    /**
+     *
+     * 合作商地址路由
+     *
+     */
+
+    //后台添加收货地址路由
+    Route::get('/users/addr_create/{id}','Admin\UsersController@addr_create')->name('admin.users.addr_create');
+
+    //后台添加收货地址路由
+    Route::post('/users/addr_add/{id}','Admin\UsersController@addr_add')->name('admin.users.addr_add');
+
+    //后台修改收货地址路由
+    Route::get('/users/{userId}/addr_edit/{id}','Admin\UsersController@addr_edit')->name('admin.users.addr_edit');
+
+    //后台修改收货地址处理路由
+    Route::post('/users/addr_update/{userId}/{id}','Admin\UsersController@addr_update')->name('admin.users.addr_update');
+
+    //后台删除收货地址路由
+    Route::get('/users/{userId}/addr_delete/{id}','Admin\UsersController@addr_delete')->name('admin.users.addr_delete');
+
+
+    /**
+     *
+     * 产品路由
+     *
+     */
+
+
+
 
 });
 

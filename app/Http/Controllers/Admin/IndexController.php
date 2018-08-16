@@ -13,6 +13,44 @@ use \DB;
 
 class IndexController extends Controller
 {
+    //排序获取管理权限方法，封装成静态
+    static function get_leaders_data()
+    {
+
+        //自定义sql语句查询，添加paths字段查询
+        $sql = "select * , concat(path,',',id) as paths from admin_leaders order by paths";
+
+        //按照级别查询数据用DB+sql语句查询
+        $leaders_data = DB::select("$sql");
+
+        foreach ($leaders_data as $key => $value) {
+            //统计逗号出现次数
+            $n = substr_count($value->path, ',');
+
+            $leaders_data[$key]->leader_name = str_repeat('|----', $n) . $value->leader_name;
+        }
+
+        return $leaders_data;
+
+    }
+
+
+    //递归获取权限级别
+    static function getPidLeaders($pid = 1)
+    {
+        $data = AdminLeader::where('pid', $pid)->get();
+        //放置空数组
+        $arr = [];
+        foreach ($data as $key => $value) {
+            //在每一个数据中加入sub，如果有子分类
+            $value['sub'] = self::getPidLeaders($value->id);
+            //重新生成数组
+            $arr[] = $value;
+        }
+
+        return $arr;
+    }
+
     //显示后台主页路由
     function index()
     {
@@ -90,39 +128,13 @@ class IndexController extends Controller
         $res = $AdminUser->save();
 
         if ($res) {
-            return redirect('/admin/users/admin_index')->with('success', '添加成功');
+            return redirect('/admin/users/admin_index_fenji')->with('success', '添加成功');
 
         } else {
 
             return back()->with('error', '添加失败');
         }
 
-    }
-
-    //后台管理员显示列表
-    function admin_index()
-    {
-        //获取数据
-        $users = AdminUser::all();
-
-        return view('Admin.users.admin.index', ['users' => $users]);
-
-    }
-
-    //递归获取权限级别
-    static function getPidLeaders($pid = 1)
-    {
-        $data = AdminLeader::where('pid', $pid)->get();
-        //放置空数组
-        $arr = [];
-        foreach ($data as $key => $value) {
-            //在每一个数据中加入sub，如果有子分类
-            $value['sub'] = self::getPidLeaders($value->id);
-            //重新生成数组
-            $arr[] = $value;
-        }
-
-        return $arr;
     }
 
 
@@ -133,29 +145,8 @@ class IndexController extends Controller
         //获取权限中的数据，实现分类
         $data = self::getPidLeaders(1);
 
+
         return view('Admin.users.admin.index_fenji', ['users' => $data]);
-
-    }
-
-
-    //排序获取管理权限方法，封装成静态
-    static function get_leaders_data()
-    {
-
-        //自定义sql语句查询，添加paths字段查询
-        $sql = "select * , concat(path,',',id) as paths from admin_leaders order by paths";
-
-        //按照级别查询数据用DB+sql语句查询
-        $leaders_data = DB::select("$sql");
-
-        foreach ($leaders_data as $key => $value) {
-            //统计逗号出现次数
-            $n = substr_count($value->path, ',');
-
-            $leaders_data[$key]->leader_name = str_repeat('|----', $n) . $value->leader_name;
-        }
-
-        return $leaders_data;
 
     }
 
@@ -206,7 +197,124 @@ class IndexController extends Controller
 
     }
 
+    //修改管理员显示修改页面
+    function admin_edit(Request $request, $id)
+    {
+        $admin_user_data = AdminUser::find($id);
 
+
+        return view('Admin.users.admin.edit', ['admin_user_data' => $admin_user_data, 'leaders_data' => self::get_leaders_data()]);
+    }
+
+
+    //更新管理员信息处理路由
+    function admin_update(Request $request, $id)
+    {
+        //获取所有数据
+        $data = $request->all();
+
+        $admin_update = AdminUser::find($id);
+
+        $admin_update->name = $data['name'];
+
+        $admin_update->sex = $data['sex'];
+
+        $admin_update->phone = $data['phone'];
+
+        $admin_update->password = Hash::make($data['password']);
+
+        $admin_update->leader_id = $data['leader_id'];
+
+        $res = $admin_update->save();
+
+        if ($res) {
+            return redirect('/admin/users/admin_index_fenji')->with('success', '修改成功');
+
+        } else {
+
+            return back()->with('error', '修改失败');
+        }
+
+    }
+
+
+    //删除管理员路由
+    function admin_delete(Request $request, $id)
+    {
+
+        //获取管理员信息
+        $admin_user = AdminUser::find($id);
+
+        //找到图片路径
+        $image = $admin_user->photo_path;
+
+        //删除管理员
+        $res = AdminUser::destroy($id);
+
+        if ($res) {
+            unlink('.' . $image);
+            return redirect('/admin/users/admin_index_fenji')->with('success', '删除成功');
+        } else {
+            return back()->with('error', '删除失败');
+        }
+    }
+
+    function admin_leader_edit(Request $request, $id)
+    {
+
+        $data = AdminLeader::find($id);
+
+        return view('Admin.users.admin.leader_edit', ['data' => $data]);
+
+    }
+
+    //更新权限处理
+    function admin_leader_update(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $leader_update = AdminLeader::find($id);
+
+        $leader_update->leader_name = $data['leader_name'];
+
+        $res = $leader_update->save();
+
+        if ($res) {
+            return redirect('/admin/users/admin_leader_index')->with('success', '修改成功');
+
+        } else {
+
+            return back()->with('error', '修改失败');
+        }
+
+    }
+
+    //删除权限处理
+    function admin_leader_delete(Request $request, $id)
+    {
+
+        $data = AdminLeader::find($id);
+
+        $parent_data = AdminLeader::where('pid', $id)->first();
+
+        $arr = $data->users;
+
+
+        if ($arr) {
+            return back()->with('error', '当前类别下存在管理员，不可以删除');
+        }
+
+        if ($parent_data) {
+            return back()->with('error', '当前类别下有子分类，不可以删除');
+        }
+
+        $res = AdminLeader::destroy($id);
+
+        if ($res) {
+            return back()->with('success', '删除权限成功');
+        }
+
+    }
 
 
 }

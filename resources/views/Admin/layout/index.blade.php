@@ -327,13 +327,8 @@
                     </a>
 
                     <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a>
-                        </li>
-                        <li id="menu-academico-avaliacoes"><a
-                                    href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员显示</a></li>
-                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index'); ?>">管理员列表</a>
-                        </li>
-
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员显示</a></li>
                     </ul>
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>合作商管理</span>

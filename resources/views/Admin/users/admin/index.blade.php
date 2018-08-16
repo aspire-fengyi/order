@@ -20,6 +20,7 @@
                     <th>手机号</th>
                     <th>管理级别</th>
                     <th>头像</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,6 +42,7 @@
                     <td>
                         <img src="{{$v->photo_path}}" alt="头像" style="height: 40px;width: 40px">
                     </td>
+                    <td>删除，修改</td>
                 </tr>
                 @endforeach
                 </tbody>
