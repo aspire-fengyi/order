@@ -27,7 +27,7 @@ class IndexController extends Controller
             //统计逗号出现次数
             $n = substr_count($value->path, ',');
 
-            $leaders_data[$key]->leader_name = str_repeat('|----', $n) . $value->leader_name;
+            $leaders_data[$key]->leader_name = str_repeat('|------', $n) . $value->leader_name;
         }
 
         return $leaders_data;
@@ -147,6 +147,18 @@ class IndexController extends Controller
 
 
         return view('Admin.users.admin.index_fenji', ['users' => $data]);
+
+    }
+
+    //后台管理员分级显示列表
+    function admin_index()
+    {
+
+        //获取权限中的数据，实现分类
+        $data = self::getPidLeaders(1);
+
+
+        return view('Admin.users.admin.index', ['users' => $data]);
 
     }
 

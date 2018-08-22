@@ -25,7 +25,7 @@ class UsersController extends Controller
     {
 
         //自定义sql语句查询，添加paths字段查询
-        $sql = "select * , concat(path,',',id) as paths from admin_leaders where (leader_name != '组员' and id != 1)order by paths";
+        $sql = "select * , concat(path,',',id) as paths from admin_leaders where (leader_name != '组员' and id != 1) order by id,paths";
 
         //按照级别查询数据用DB+sql语句查询
         $leaders_data = DB::select("$sql");
@@ -34,7 +34,7 @@ class UsersController extends Controller
             //统计逗号出现次数
             $n = substr_count($value->path, ',');
 
-            $leaders_data[$key]->leader_name = str_repeat('|----', $n) . $value->leader_name;
+            $leaders_data[$key]->leader_name = str_repeat('|-----', $n) . $value->leader_name;
         }
 
         return $leaders_data;
@@ -59,7 +59,7 @@ class UsersController extends Controller
 
 
     //后台管理员分级显示列表
-    function index()
+    function index_fenzu()
     {
 
         //获取权限中的数据，实现分类
@@ -70,6 +70,17 @@ class UsersController extends Controller
 
     }
 
+    //后台管理员分级显示列表
+    function index()
+    {
+
+        //获取权限中的数据，实现分类
+        $data = self::getPidLeaders(1);
+
+
+        return view('Admin.users.users.index_he', ['users' => $data]);
+
+    }
 
     function create()
     {
@@ -179,7 +190,7 @@ class UsersController extends Controller
         if ($res1 && $res2 && $res3) {
 
             DB::commit();
-            return redirect('/admin/users/index')->with('success', '添加成功');
+            return redirect('/admin/users/index_fenzu')->with('success', '添加成功');
 
         } else {
 

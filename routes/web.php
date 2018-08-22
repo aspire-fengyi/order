@@ -79,6 +79,9 @@ Route::group(['prefix'=>'admin'],function(){
     //后台显示合作商路由
     Route::get('/users/index','Admin\UsersController@index')->name('admin.users.index');
 
+    //后台分组显示合作商路由2
+    Route::get('/users/index_he','Admin\UsersController@index_fenzu')->name('admin.users.index_fenzu');
+
     //后台添加合作商路由
     Route::get('/users/create','Admin\UsersController@create')->name('admin.users.create');
 
@@ -92,8 +95,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/users/edit/{id}','Admin\UsersController@edit')->name('admin.users.edit');
 
     //后台修改合作商处理路由
-    Route::post('/金黄色	￼	￼修改 ￼删除
-颜色：	蓝色	￼users/update/{id}','Admin\UsersController@update')->name('admin.users.update');
+    Route::post('/users/update/{id}','Admin\UsersController@update')->name('admin.users.update');
 
     //后台删除合作商路由
     Route::get('/users/delete/{id}','Admin\UsersController@delete')->name('admin.users.delete');
@@ -213,8 +215,52 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/goods/goodGuigeDelete/{id}','Admin\GoodsController@goodGuigeDelete')->name('admin.goods.goodGuigeDelete');
 
 
+    /**
+     *
+     * 产品轮播图路由
+     *
+     */
+
+    //轮播图详情
+    Route::get('/lunbos/index','Admin\LunbosController@index')->name('admin.lunbos.index');
+
+    //添加产品轮播图路由
+    Route::get('/lunbos/create','Admin\LunbosController@create')->name('admin.lunbos.create');
+
+    //添加产品轮播图路由
+    Route::post('/lunbos/add','Admin\LunbosController@add')->name('admin.lunbos.add');
+
+    //删除产品轮播图路由
+    Route::get('/lunbos/delete/{id}','Admin\LunbosController@delete')->name('admin.lunbos.delete');
+
+    //显示产品轮播图路由
+    Route::get('/lunbos/xianshi/{id}','Admin\LunbosController@xianshi')->name('admin.lunbos.xianshi');
+
+    //隐藏产品轮播图路由
+    Route::get('/lunbos/yincang/{id}','Admin\LunbosController@yincang')->name('admin.lunbos.yincang');
+
+
 
 });
+
+//前台路由组
+Route::group(['prefix'=>'home'],function(){
+
+    /**
+     *
+     * 前台首页路由
+     *
+     */
+
+    //首页路由
+    Route::get('/layout','Home\IndexController@layoutindex')->name('home.layoutindex');
+
+
+
+
+});
+//首页路由
+Route::get('/','Home\IndexController@index')->name('home.index');
 
 
 

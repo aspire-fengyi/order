@@ -1,7 +1,7 @@
 @extends('Admin.layout.index')
 @section('mulu')
 
-    <li class="breadcrumb-item"><a href="<?php echo route('admin.index'); ?>">首页</a><i class="fa fa-angle-right"></i>合作商管理 <i class="fa fa-angle-right"></i>合作商列表</li>
+    <li class="breadcrumb-item"><a href="<?php echo route('admin.index'); ?>">首页</a><i class="fa fa-angle-right"></i>合作商管理 <i class="fa fa-angle-right"></i>合作商分组</li>
 
 @endsection
 @section('content')

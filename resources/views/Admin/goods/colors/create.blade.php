@@ -30,7 +30,7 @@
         </div>
     @endif
 
-    {{--管理员添加--}}
+    {{--颜色添加--}}
     <div class="grid-form1">
         <h3>产品颜色添加</h3>
         <div class="panel-body">

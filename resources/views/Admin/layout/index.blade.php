@@ -70,7 +70,8 @@
             <!--header start here-->
             <div class="header-main">
                 <div class="logo-w3-agile">
-                    <h1><a href="">全部</a></h1>
+                    <h1><a href="{{ url()->previous() }}">返回</a></h1>
+
                 </div>
                 <div class="w3layouts-left">
 
@@ -309,7 +310,7 @@
         <div style="border-top:1px ridge rgba(255, 255, 255, 0.15)"></div>
         <div class="menu">
             <ul id="menu">
-                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>权限管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa   fa-sitemap" aria-hidden="true"></i><span>权限管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
@@ -321,26 +322,30 @@
                                     href="<?php echo route('admin.users.admin_leader_index'); ?>">权限显示</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>管理员管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa   fa-user" aria-hidden="true"></i><span>管理员管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
 
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a></li>
-                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员显示</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index'); ?>">管理员显示</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员分级显示</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i><span>合作商管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa   fa-users" aria-hidden="true"></i><span>合作商管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.create') ?>">合作商添加</a></li>
+
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.index') ?>">合作商列表</a></li>
+
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.index_fenzu') ?>">合作商分组</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa  fa-gitlab" aria-hidden="true"></i><span>产品类别管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa    fa-certificate" aria-hidden="true"></i><span>产品类别管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
@@ -349,7 +354,7 @@
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.categories.index') ?>">产品类别列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa fa-envira" aria-hidden="true"></i><span>产品管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa  fa-glide" aria-hidden="true"></i><span>产品管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
@@ -358,7 +363,7 @@
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.goods.index') ?>">产品列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>订单管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa     fa-align-justify" aria-hidden="true"></i><span>订单管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
@@ -366,22 +371,18 @@
                         <li id="menu-academico-avaliacoes"><a href="">订单列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>文章管理</span>
+
+                <li id="menu-academico">
+                    <a href="#"><i class="fa  fa-picture-o" aria-hidden="true"></i><span>轮播图管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
                     <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="">文章管理</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.lunbos.create') ?>">轮播图添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.lunbos.index') ?>">轮播图列表</a></li>
                     </ul>
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>广告管理</span>
-                        <span class="fa fa-angle-right" style="float: right"></span>
-                        <div class="clearfix"></div>
-                    </a>
-                    <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="">广告管理</a></li>
-                    </ul>
-                </li>
+
             </ul>
         </div>
     </div>
