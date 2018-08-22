@@ -13,21 +13,10 @@
         <div class="form-horizontal form-group">
             <div class="mother-grid-inner copyrights ">
 
-                {{--<div class="form-group">--}}
-                    {{--<label for="selector1" class="col-sm-2 control-label">权限添加</label>--}}
-                    {{--<div class="col-sm-8">--}}
-                        {{--<select name="pid" id="selector1" class="form-control1">--}}
-                            {{--<option value="0">请选择（此选择默认为顶级权限）</option>--}}
-                            {{--@foreach($leaders_data as $k=>$v)--}}
-                                {{--<option value="{{$v->id}}"   @if($data->id = $v->id) selected @endif>{{$v->leader_name}}</option>--}}
-                            {{--@endforeach--}}
-                        {{--</select>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
                 <div class="form-group mb-n">
                     <label for="largeinput" class="col-sm-2 control-label label-input-lg">修改权限名称</label>
                     <div class="col-sm-8">
-                        <input name="leader_name" type="text" class="form-control1 input-lg" id="largeinput" placeholder="请输入权限名称" value="{{$data->leader_name}}">
+                        <input name="leader_name" type="text" class="form-control1 input-lg" id="largeinput" required=""  placeholder="请输入权限名称" value="{{$data->leader_name}}">
                     </div>
                 </div>
                 <div class="panel-footer">

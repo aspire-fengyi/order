@@ -92,7 +92,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/users/edit/{id}','Admin\UsersController@edit')->name('admin.users.edit');
 
     //后台修改合作商处理路由
-    Route::post('/users/update/{id}','Admin\UsersController@update')->name('admin.users.update');
+    Route::post('/金黄色	￼	￼修改 ￼删除
+颜色：	蓝色	￼users/update/{id}','Admin\UsersController@update')->name('admin.users.update');
 
     //后台删除合作商路由
     Route::get('/users/delete/{id}','Admin\UsersController@delete')->name('admin.users.delete');
@@ -121,10 +122,95 @@ Route::group(['prefix'=>'admin'],function(){
 
     /**
      *
+     * 产品类别路由
+     *
+     */
+
+    //产品类别添加路由
+    Route::get('/categories/create','Admin\CategoriesController@create')->name('admin.categories.create');
+
+    //产品类别添加处理路由
+    Route::post('/categories/add','Admin\CategoriesController@add')->name('admin.categories.add');
+
+    //产品类别显示
+    Route::get('/categories/index','Admin\CategoriesController@index')->name('admin.categories.index');
+
+    //产品类别修改路由
+    Route::get('/categories/edit/{id}','Admin\CategoriesController@edit')->name('admin.categories.edit');
+
+    //产品类别修改处理路由
+    Route::post('/categories/update/{id}','Admin\CategoriesController@update')->name('admin.categories.update');
+
+    //产品类别删除路由
+    Route::get('/categories/delete/{id}','Admin\CategoriesController@delete')->name('admin.categories.delete');
+
+
+    /**
+     *
      * 产品路由
      *
      */
 
+    //产品添加路由
+    Route::get('/goods/create','Admin\GoodsController@create')->name('admin.goods.create');
+
+    //产品添加处理路由
+    Route::post('/goods/add','Admin\GoodsController@add')->name('admin.goods.add');
+
+    //产品显示路由
+    Route::get('/goods/index','Admin\GoodsController@index')->name('admin.goods.index');
+
+    //产品显示路由
+    Route::get('/goods/addModel','Admin\GoodsController@addModel')->name('admin.goods.addModel');
+
+    //产品修改路由
+    Route::get('/goods/edit/{id}','Admin\GoodsController@edit')->name('admin.goods.edit');
+
+    //产品修改路由
+    Route::post('/goods/update/{id}','Admin\GoodsController@update')->name('admin.goods.update');
+
+    //产品删除路由
+    Route::get('/goods/delete/{id}','Admin\GoodsController@delete')->name('admin.goods.delete');
+
+
+    /**
+     *
+     * 产品颜色路由
+     *
+     */
+
+    //产品颜色详情路由
+    Route::get('/goods/goodColor/{id}','Admin\GoodsController@goodColor')->name('admin.goods.goodColor');
+
+    //产品添加颜色路由
+    Route::get('/goods/goodColorCreate/{id}','Admin\GoodsController@goodColorCreate')->name('admin.goods.goodColorCreate');
+
+    //产品添加颜色处理路由
+    Route::post('/goods/goodColorAdd/{id}','Admin\GoodsController@goodColorAdd')->name('admin.goods.goodColorAdd');
+
+    //产品删除颜色路由
+    Route::get('/goods/goodColorDelete/{id}','Admin\GoodsController@goodColorDelete')->name('admin.goods.goodColorDelete');
+
+
+
+
+    /**
+     *
+     * 产品规格路由
+     *
+     */
+
+    //产品规格详情路由
+    Route::get('/goods/goodGuige/{id}','Admin\GoodsController@goodGuige')->name('admin.goods.goodGuige');
+
+    //产品添加规格路由
+    Route::get('/goods/goodGuigeCreate/{id}','Admin\GoodsController@goodGuigeCreate')->name('admin.goods.goodGuigeCreate');
+
+    //产品添加规格处理路由
+    Route::post('/goods/goodGuigeAdd/{id}','Admin\GoodsController@goodGuigeAdd')->name('admin.goods.goodGuigeAdd');
+
+    //产品删除规格色路由
+    Route::get('/goods/goodGuigeDelete/{id}','Admin\GoodsController@goodGuigeDelete')->name('admin.goods.goodGuigeDelete');
 
 
 

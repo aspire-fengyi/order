@@ -27,7 +27,7 @@
             <div class="form-group mb-n">
                 <label for="largeinput" class="col-sm-2 control-label label-input-lg">权限名称</label>
                 <div class="col-sm-8">
-                    <input name="leader_name" type="text" class="form-control1 input-lg" id="largeinput" placeholder="请输入权限名称">
+                    <input name="leader_name" type="text" class="form-control1 input-lg" id="largeinput"  required="" placeholder="请输入权限名称">
                 </div>
             </div>
             <div class="panel-footer">

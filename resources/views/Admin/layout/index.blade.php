@@ -345,8 +345,8 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="">产品类别添加</a></li>
-                        <li id="menu-academico-avaliacoes"><a href="">产品类别列表</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.categories.create') ?>">产品类别添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.categories.index') ?>">产品类别列表</a></li>
                     </ul>
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa fa-envira" aria-hidden="true"></i><span>产品管理</span>
@@ -354,8 +354,8 @@
                         <div class="clearfix"></div>
                     </a>
                     <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="">产品列表</a></li>
-                        <li id="menu-academico-avaliacoes"><a href="">产品添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.goods.create') ?>">产品添加</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.goods.index') ?>">产品列表</a></li>
                     </ul>
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa  fa-barcode" aria-hidden="true"></i><span>订单管理</span>
