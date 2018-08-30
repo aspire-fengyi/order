@@ -130,9 +130,8 @@
                     <div class="col-sm-8">
                         <select name="jibie" id="selector1" class="form-control1">
                             <option value="">请选择</option>
-                            <option value="0">普通</option>
-                            <option value="1">市级代理</option>
-                            <option value="2">省级代理</option>
+                            <option value="0">合作商</option>
+                            <option value="1">代理商</option>
                         </select>
                     </div>
                 </div>

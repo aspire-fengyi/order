@@ -31,4 +31,18 @@ class User extends Model
         return $this->belongsTo('App\Models\AdminUser','admin_user_id');
     }
 
+    //获取用户购物车
+    public function carts()
+    {
+        //用户表和收货地址表是一对多关系
+        return $this->hasMany('App\Models\Cart','user_id');
+    }
+
+    //获取用户提交订单前信息
+    public function beforeOrders()
+    {
+        //用户表和收货地址表是一对多关系
+        return $this->hasMany('App\Models\BeforeOrders','user_id');
+    }
+
 }

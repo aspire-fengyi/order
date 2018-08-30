@@ -236,10 +236,10 @@
                         <li class="dropdown profile_details_drop">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <div class="profile_img">
-                                    <span class="prfil-img"><img src="/adminTemplate/images/in4.jpg" alt=""> </span>
+                                    <span class="prfil-img"><img src="{{session('adminUser')['photo_path']}}" alt=""> </span>
                                     <div class="user-name">
-                                        <p>用户名</p>
-                                        <span>身份</span>
+                                        <p>{{session('adminUser')['name']}}</p>
+                                        <span>管理员</span>
                                     </div>
                                     <i class="fa fa-angle-down"></i>
                                     <i class="fa fa-angle-up"></i>
@@ -247,9 +247,8 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu drp-mnu">
-                                <li><a href="#"><i class="fa fa-cog"></i>设置</a></li>
-                                <li><a href="#"><i class="fa fa-user"></i>详情</a></li>
-                                <li><a href="#"><i class="fa fa-sign-out"></i> 退出</a></li>
+                                <li><a href="<?php echo route('admin.rePassword',['id'=>session('adminUser')['id']])?>"><i class="fa fa-user"></i>修改密码</a></li>
+                                <li><a href="/admin/logout/"><i class="fa fa-sign-out"></i> 退出</a></li>
                             </ul>
                         </li>
                     </ul>

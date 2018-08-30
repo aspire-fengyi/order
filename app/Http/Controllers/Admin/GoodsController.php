@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Faker\Provider\Color;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
@@ -9,6 +10,7 @@ use App\Models\Good;
 use App\Models\GoodModel;
 use App\Models\GoodGuige;
 use App\Models\GoodColor;
+use App\Models\GoodPicture;
 use \DB;
 
 
@@ -58,6 +60,7 @@ class GoodsController extends Controller
         return view('Admin.goods.create', ['categories_data' => self::get_categories_data()]);
     }
 
+    //添加商品
     function add(Request $request)
     {
         DB::beginTransaction();
@@ -146,23 +149,43 @@ class GoodsController extends Controller
 
         $good_model->price_desc = $data['price_desc'];
 
-        $good_model->stocks = $data['stocks'];
-
-        $good_model->bianma = $data['bianma'];
-
         $good_model->desc = $data['desc'];
 
         $good_model->status = $data['status'];
 
         $good_model->image_path = $data['image_path'];
 
-        $good_model->shichang_price = $data['shichang_price'];
-
-        $good_model->hezuo_price = $data['hezuo_price'];
-
-        $good_model->daili_price = $data['daili_price'];
-
         $res2 = $good_model->save();
+
+        //获取最后一条插入数据的id
+        $good_model_id = DB::getPdo()->lastInsertId();
+
+        //转换数据类型
+        $good_model_id = intval($id);
+
+
+        //添加商品规格
+        $good_guige = new GoodGuige();
+
+        $good_guige->good_id = $good_id;
+
+        $good_guige->good_model_id = $good_model_id;
+
+        $good_guige->bianma = $data['bianma'];
+
+        $good_guige->guige = $data['guige'];
+
+        $good_guige->guige_desc = $data['guige_desc'];
+
+        $good_guige->shichang_price = $data['shichang_price'];
+
+        $good_guige->hezuo_price = $data['hezuo_price'];
+
+        $good_guige->daili_price = $data['daili_price'];
+
+        $good_guige->daili_price = $data['price_number'];
+
+        $res4 = $good_guige->save();
 
 
         //添加商品颜色
@@ -175,15 +198,6 @@ class GoodsController extends Controller
         $good_color->color_image_path = $data['color_image_path'];
 
         $res3 = $good_color->save();
-
-        //添加商品规格
-        $good_guige = new GoodGuige();
-
-        $good_guige->good_id = $good_id;
-
-        $good_guige->guige = $data['guige'];
-
-        $res4 = $good_guige->save();
 
 
 
@@ -270,20 +284,17 @@ class GoodsController extends Controller
 
         $good->good_name=$data['good_name'];
 
+        $good->status=$data['status'];
+
         $good->category_id=$data['category_id'];
 
         $res1 = $good->save();
 
         $good_model= $good->goodModel;
 
-
         $good_model->good_name = $data['good_name'];
 
         $good_model->price_desc = $data['price_desc'];
-
-        $good_model->stocks = $data['stocks'];
-
-        $good_model->bianma = $data['bianma'];
 
         $good_model->desc = $data['desc'];
 
@@ -317,11 +328,6 @@ class GoodsController extends Controller
             $good_model->image_path = $data['image_path'];
 
         }
-        $good_model->shichang_price = $data['shichang_price'];
-
-        $good_model->hezuo_price = $data['hezuo_price'];
-
-        $good_model->daili_price = $data['daili_price'];
 
         $res2 = $good_model->save();
 
@@ -354,9 +360,8 @@ class GoodsController extends Controller
     {
         $good = Good::find($id);
 
-        $goodModel = $good->goodModel;
 
-        return view ('Admin.goods.colors.index',['good'=>$good,'goodModel'=>$goodModel]);
+        return view ('Admin.goods.colors.index',['good'=>$good]);
     }
 
     //商品颜色添加
@@ -422,6 +427,71 @@ class GoodsController extends Controller
 
     }
 
+    //产品颜色修改路由
+    function goodColorEdit(Request $request,$id)
+    {
+        $color = GoodColor::find($id);
+
+        return view('Admin.goods.colors.edit',['color'=>$color]);
+    }
+
+
+    //产品颜色修改路由
+    function goodColorUpdate(Request $request,$id)
+    {
+        $data = $request->all();
+
+
+        $color = GoodColor::find($id);
+
+
+        $good_id = $color->good_id;
+
+        $color_image_path = $color->color_image_path;
+
+        $good = Good::find($good_id);
+
+        $color->color = $data['color'];
+
+        //处理产品照片
+        if ($request->hasFile('color_image')) {
+
+            unlink('.' . $color_image_path);
+            //获取上传图片信息
+            $image = $request->file('color_image');
+
+            //获取后缀
+            $ext = $image->getClientOriginalExtension();
+
+            //为图片起新名字
+            $temp_name = time() . rand(1000, 9999) . '.' . $ext;
+
+            //设置路径名称
+            $dir_name = '/images/admin/goods/colors/' . date('Ymd', time());
+
+            //往数据库中存储的名字 拼接路径方便存储.
+            $image_path = $dir_name . '/' . $temp_name;
+            //echo $name;
+
+            //将图片移动到框架中             路径  ，  名称
+            $image->move('.' . $dir_name, $temp_name);
+
+            //把文件路径存到数据中然后下一步扔进数据库
+            $data['color_image_path'] = $image_path;
+
+            $color->color_image_path = $data['color_image_path'];
+
+        }
+
+        $res = $color->save();
+
+
+        if($res)
+        {
+            return view('Admin.goods.colors.index',['good'=>$good]);
+        }
+    }
+
     //产品颜色删除路由
     function goodColorDelete( Request $request,$id)
     {
@@ -458,11 +528,31 @@ class GoodsController extends Controller
     {
         DB::beginTransaction();
 
+        $good = Good::find($id);
+
+        $good_model = $good->goodModel;
+
+        $good_model_id = $good_model->id;
+
         $data = $request->all();
 
         $good_guige = new GoodGuige();
 
+        $good_guige -> good_id = $id;
+
+        $good_guige -> good_model_id = $good_model_id;
+
+        $good_guige -> bianma = $data['bianma'];
+
         $good_guige -> guige = $data['guige'];
+
+        $good_guige -> guige_desc = $data['guige_desc'];
+
+        $good_guige->shichang_price = $data['shichang_price'];
+
+        $good_guige->hezuo_price = $data['hezuo_price'];
+
+        $good_guige->daili_price = $data['daili_price'];
 
         $good_guige-> good_id =  $id;
 
@@ -481,13 +571,146 @@ class GoodsController extends Controller
 
     }
 
-    //产品颜色删除路由
+    //产品规格修改路由
+    function goodGuigeEdit(Request $request,$id)
+    {
+        $guige = GoodGuige::find($id);
+
+        return view('Admin.goods.guiges.edit',['guige'=>$guige]);
+    }
+
+    //产品规格修改路由
+    function goodGuigeUpdate(Request $request,$id)
+    {
+        $data = $request->all();
+
+
+        $good_guige = GoodGuige::find($id);
+
+
+        $good_id = $good_guige->good_id;
+
+
+        $good = Good::find($good_id);
+
+
+        $good_guige -> bianma = $data['bianma'];
+
+        $good_guige -> guige = $data['guige'];
+
+        $good_guige -> guige_desc = $data['guige_desc'];
+
+        $good_guige->shichang_price = $data['shichang_price'];
+
+        $good_guige->hezuo_price = $data['hezuo_price'];
+
+        $good_guige->daili_price = $data['daili_price'];
+
+
+        $res = $good_guige->save();
+
+
+        if($res)
+        {
+            return redirect()->route('admin.goods.goodGuige',['good'=>$good]);
+        }
+    }
+
+
+
+    //产品规格删除路由
     function goodGuigeDelete( Request $request,$id)
     {
 
         $res = GoodGuige::destroy($id);
 
         if ($res) {
+            return back()->with('success', '删除商品规格成功');
+        }
+
+    }
+
+
+
+    //产品图片显示路由
+    function goodPicture(Request $request,$id)
+    {
+        $good = Good::find($id);
+
+        return view('Admin.goods.pictures.index',['good'=>$good]);
+    }
+
+
+    //产品图片添加显示路由
+    function goodPictureCreate(Request $request,$id)
+    {
+
+        return view('Admin.goods.pictures.create',['good_id'=>$id]);
+    }
+
+
+    //产品图片添加处理路由
+    function goodPictureAdd(Request $request,$id)
+    {
+
+        $data = $request->all();
+        $good = Good::find($id);
+
+
+        //处理产品颜色照片
+        if ($request->hasFile('picture_path')) {
+
+            //获取上传图片信息
+            $color_image = $request->file('picture_path');
+
+            //获取后缀
+            $ext = $color_image->getClientOriginalExtension();
+
+            //为图片起新名字
+            $temp_name = time() . rand(1000, 9999) . '.' . $ext;
+
+            //设置路径名称
+            $dir_name = "/images/admin/goods/pictures/$id/" . date('Ymd', time());
+
+            //往数据库中存储的名字 拼接路径方便存储.
+            $color_image_path = $dir_name . '/' . $temp_name;
+            //echo $name;
+
+            //将图片移动到框架中             路径  ，  名称
+            $color_image->move('.' . $dir_name, $temp_name);
+
+            //把文件路径存到数据中然后下一步扔进数据库
+            $data['picture_path'] = $color_image_path;
+        }
+
+        $good_picture = new GoodPicture();
+
+        $good_picture->good_id = $id;
+
+        $good_picture->picture_path = $data['picture_path'];
+
+        $res = $good_picture->save();
+
+        if($res)
+        {
+            return redirect()->route('admin.goods.goodPicture',['good'=>$good]);
+        }
+
+
+    }
+
+
+    //产品图片添加显示处理路由
+    function goodPictureDelete(Request $request,$id)
+    {
+       $picture = GoodPicture::find($id);
+
+       $picture_path = $picture->picture_path;
+
+       $res = GoodPicture::destroy($id);
+
+        if ($res) {
+            unlink('.'.$picture_path);
             return back()->with('success', '删除商品规格成功');
         }
 

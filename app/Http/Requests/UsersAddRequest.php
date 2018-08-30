@@ -57,7 +57,7 @@ class UsersAddRequest extends FormRequest
     {
         return [
             'name.required' => '姓名必须填写',
-            'name.unique' => '合作商已存在',
+            'name.unique' => '该合作商已被注册',
             'name.regex' => '姓名格式不正确',
 
             'sex.required'  => '性别必须填写',

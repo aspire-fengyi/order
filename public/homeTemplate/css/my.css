@@ -1,0 +1,113 @@
+/*common.css*/
+body,h1,h2,h3,h4,h5,h6,dl,dt,dd,ul,ol,li,th,td,p,blockquote,pre,form,fieldset,legend,input,button,textarea,hr{margin:0;padding:0}
+body,button,input,select,textarea{ font-size:14px; line-height:27px; color:#333}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+li{list-style:none}
+fieldset,img{border:0}
+table{border-collapse:collapse;border-spacing:0}
+table td{font-size:14px; color:#333; line-height:27px}
+p{ font-size:14px; line-height:27px}
+q:before,q:after{content:""}
+button,input,select,textarea{font-size:100%}
+legend{color:#000}
+small{font-size:12px}
+hr{border:none;height:1px}
+.fl{float: left;}
+.fr{float: right;}
+a{text-decoration:none}
+a:hover{text-decoration:underline}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{ display:block}
+
+.cp_box{
+	margin: 0 auto;
+	width: 1024px;
+	background: #f2f5f8;
+}
+.cp_box .cp_cont{
+	width: 780px;
+	margin: 0 auto;
+}
+.cp_box .cp_img img{
+ width: 100%;
+}
+.cp_box .cp_cont .cp_buy{
+	text-align: center;
+	height: 4em;
+	line-height: 4em;
+}
+.cp_box .cp_cont .cp_buy input{
+	margin: 0 4px;
+}
+.cp_box .cp_cont .cp_buy .cp_buy_now{
+	padding:0 6px 0 40px;
+	text-align: center;
+	outline:none;
+	background: url('../images/backIcon.png') no-repeat center left;
+}
+.cp_box .cp_cont .cp_buy .cp_buy_back{
+	padding:0 6px 0 40px;
+	text-align: center;
+	outline:none;
+	background: url('../images/backIcon.png') no-repeat center left;
+}
+
+.cp_des_tab{
+    width: 100%;
+    border-collapse: collapse;
+    border-right: 1px solid #8f8f94;
+    border-bottom: 1px solid #8f8f94;
+    margin: 4px 0;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-collapse: collapse;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.cp_des_tab td{
+	border: 1px solid #8f8f94;
+    line-height: 14px;
+    font-size: 12px;
+    color: #000;
+}
+
+.cp_des_tab td:first-child{
+	width: 170px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 30px;
+}
+.cp_des_tab td:last-child{
+	padding-left: 10px;
+}
+.cp_list_style{
+	
+}
+.cp_list_style li{
+	float: left;
+	border: 2px solid #ccc;
+	margin: 4px 8px 4px 0;
+}
+.cp_list_style li img{
+	display: block;
+	float: left;
+	width: 72px;
+	height: 36px;
+}
+.cp_list_style li span{
+	display: block;
+	float: left;
+	line-height: 36px;
+	width: 108px;
+	text-align: center;
+}
+.cp_list_style li.checkbox{
+	border-color: red;
+}
+.cp_des_tab p.font_red{
+	color: red;
+}

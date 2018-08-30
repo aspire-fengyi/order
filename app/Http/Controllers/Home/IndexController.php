@@ -60,7 +60,9 @@ class IndexController extends Controller
 
         $data = self::getPidLeaders();
 
-        return view ('Home.index',['goods'=>$data,'lunbos'=>$lunbos]);
+        $goods = Good::all();
+
+        return view ('Home.index',['data'=>$data,'lunbos'=>$lunbos,'goods'=>$goods]);
     }
 
     function layoutindex()
@@ -69,5 +71,7 @@ class IndexController extends Controller
         $data = self::getPidLeaders();
 
         return view ('Home.layout.index',['goods'=>$data]);
+
     }
+
 }

@@ -18,7 +18,7 @@
             {{ session('error') }}
         </div>
     @endif
-
+    <a href="<?php echo route('admin.lunbos.create'); ?>"><button class="btn btn-primary">添加轮播</button></a>
     <div class="grid-form1">
     <h3>轮播图列表</h3>
     <table id="table-force-off">

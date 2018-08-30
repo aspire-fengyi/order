@@ -32,7 +32,7 @@
             <td class="text-center" >产品ID：{{$good->id}}</td>
             <td class="text-center" >产品名称：{{$good->good_name}}</td>
             <td class="text-center" colspan=2>
-                <img src="{{$goodModel->image_path}}" alt="产品缩略图" style="height: 80px;width: 150px">
+                <img src="{{$good->goodModel->image_path}}" alt="产品缩略图" style="height: 80px;width: 150px">
             </td>
             <td class="text-center" >操作</td>
         </tr>
@@ -44,6 +44,8 @@
                     <img src="{{$colors_date->color_image_path}}" alt="产品颜色缩略图" style="height: 80px;width: 150px">
                 </td>
                 <td class="text-center">
+
+                    <a href="<?php echo route('admin.goods.goodColorEdit', ['id' => $colors_date->id]);?> "><button class="btn btn-primary">修改</button></a>
 
                     <a href="<?php echo route('admin.goods.goodColorDelete', ['id' => $colors_date->id]);?> "><button class="btn btn-danger">删除</button></a>
 

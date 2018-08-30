@@ -30,7 +30,7 @@
 
 
                 var n =$(this).index();
-                console.log(n);
+
                 $('.xianshi').css('display','none');
                 $('.xianshi').eq(n).css('display','block');
                 $(this).children().removeClass('col-11').addClass('col-1');

@@ -23,6 +23,13 @@ class Good extends Model
         return $this->hasMany('App\Models\GoodColor', 'good_id');
     }
 
+    //获取产品展示图片
+    public function goodPictures()
+    {
+        //产品和产品展示图片是一对多关系
+        return $this->hasMany('App\Models\GoodPicture', 'good_id');
+    }
+
     //获取产品规格
     public function goodGuiges()
     {

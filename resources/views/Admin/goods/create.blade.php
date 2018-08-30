@@ -49,6 +49,20 @@
                     </div>
                 </div>
 
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">产品描述</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa  fa-plus-circle"></i>
+									</span>
+                            <textarea name="desc" id="" cols="68" placeholder="请输入此产品描述" required=""   value="{{old('desc')}}"  rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="form-group">
                     <label class="col-md-2 control-label">产品编码</label>
                     <div class="col-md-8">
@@ -68,7 +82,7 @@
 									<span class="input-group-addon">
 										<i class="fa fa-picture-o"></i>
 									</span>
-                            <input name="image" type="file" class="form-control1" placeholder="产品图片" >
+                            <input name="image" type="file" class="form-control1" required="" placeholder="产品图片" >
                         </div>
                     </div>
                 </div>
@@ -80,70 +94,35 @@
 									<span class="input-group-addon">
 										<i class="fa    fa-plus-circle"></i>
 									</span>
-                            <input name="guige" type="text" class="form-control1" placeholder="请输入产品规格,例如100*100mm,1kg/桶" required="" value="{{old('model')}}">
+                            <input name="guige" type="text" class="form-control1" placeholder="请输入产品规格,例如100*100×3(mm),1kg/桶" required="" value="{{old('model')}}">
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label">产品颜色</label>
+                    <label class="col-md-2 control-label">产品基数</label>
                     <div class="col-md-8">
                         <div class="input-group">
 									<span class="input-group-addon">
-										<i class="fa    fa-plus-circle"></i>
+										<i class="fa   fa-money"></i>
 									</span>
-                            <input name="color" type="text" class="form-control1" placeholder="请输入产品颜色" required="" value="{{old('color')}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">产品颜色图片</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa fa-picture-o"></i>
-									</span>
-                            <input name="color_image" type="file" class="form-control1" placeholder="产品颜色图片" >
+                            <input name="price_number" type="text" class="form-control1" placeholder="如果是板材，将面积算出来，如果是线条，将长度写出来，价格单位，写整数" required="" value="{{old('price_desc')}}">
                         </div>
                     </div>
                 </div>
 
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label">库存数量</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa    fa-plus-circle"></i>
-									</span>
-                            <input name="stocks" type="text" class="form-control1" placeholder="请输入库存数量" required="" value="{{old('stocks')}}">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">产品描述</label>
+                    <label class="col-md-2 control-label">对应规格描述</label>
                     <div class="col-md-8">
                         <div class="input-group">
 									<span class="input-group-addon">
 										<i class="fa  fa-plus-circle"></i>
 									</span>
-                            <textarea name="desc" id="" cols="68" placeholder="请输入产品描述"   value="{{old('desc')}}"  rows="4"></textarea>
+                            <textarea name="guige_desc" id="" cols="68" placeholder="请输入当前产品规格描述" required=""   value="{{old('guige_desc')}}"  rows="4"></textarea>
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">产品状态</label>
-                    <div class="col-sm-8">
-                        <div class="checkbox-inline"><label><input name="status" type="radio" checked value="2"> 新品</label></div>
-                        <div class="checkbox-inline"><label><input name="status" type="radio" value="1"> 上架</label></div>
-                        <div class="checkbox-inline"><label><input name="status" type="radio" value="0"> 下架</label></div>
-                    </div>
-                </div>
-
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">价格描述</label>
@@ -192,6 +171,42 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">产品颜色</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa    fa-plus-circle"></i>
+									</span>
+                            <input name="color" type="text" class="form-control1" placeholder="请输入产品颜色" required="" value="{{old('color')}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">产品颜色图片</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-picture-o"></i>
+									</span>
+                            <input name="color_image" type="file" class="form-control1" required="" placeholder="产品颜色图片" >
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">产品状态</label>
+                    <div class="col-sm-8">
+                        <div class="checkbox-inline"><label><input name="status" type="radio" checked value="2"> 新品</label></div>
+                        <div class="checkbox-inline"><label><input name="status" type="radio" value="1"> 上架</label></div>
+                        <div class="checkbox-inline"><label><input name="status" type="radio" value="0"> 下架</label></div>
+                    </div>
+                </div>
+
 
                 <div class="panel-footer">
                     <div class="row">

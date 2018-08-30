@@ -49,17 +49,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label">产品编码</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa    fa-plus-circle"></i>
-									</span>
-                            <input name="bianma" type="text" class="form-control1" placeholder="请输入产品编码" required="" value="{{$good->goodModel->bianma}}">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">产品图片:默认为原图</label>
@@ -72,20 +61,6 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">库存数量</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa    fa-plus-circle"></i>
-									</span>
-                            <input name="stocks" type="text" class="form-control1" placeholder="请输入库存数量" required="" value="{{$good->goodModel->stocks}}">
-                        </div>
-                    </div>
-                </div>
-
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">产品描述</label>
@@ -121,41 +96,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label">市场价</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa   fa-money"></i>
-									</span>
-                            <input name="shichang_price" type="text" class="form-control1" placeholder="请输入产品市场价" required="" value="{{$good->goodModel->shichang_price}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">合作价</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa   fa-money"></i>
-									</span>
-                            <input name="hezuo_price" type="text" class="form-control1" placeholder="请输入产品合作价" required="" value="{{$good->goodModel->hezuo_price}}">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label">代理价</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa   fa-money"></i>
-									</span>
-                            <input name="daili_price" type="text" class="form-control1" placeholder="请输入产品代理价" required="" value="{{$good->goodModel->daili_price}}">
-                        </div>
-                    </div>
-                </div>
 
                 <div class="panel-footer">
                     <div class="row">

@@ -10,15 +10,37 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//后台登录页面路由
+Route::get('/admin/login','Admin\LoginController@login')->name('admin.login');
+
+//登录后台管理员验证路由
+Route::post('/admin/doLogin/','Admin\LoginController@doLogin')->name('admin.doLogin');
+
+
 //后台路由组
 
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware' => 'adminFlag'],function(){
+
+
+
 
     /**
      *
      * 管理员路由
      *
      */
+    //管理员退出路由
+    Route::get('/logout','Admin\LoginController@logout')->name('admin.logout');
+
+    //管理员修改密码
+    Route::get('/rePassword/{id}','Admin\IndexController@rePassword')->name('admin.rePassword');
+
+    //管理员修改密码处理
+    Route::post('/doRePassword/{id}','Admin\IndexController@doRePassword')->name('admin.doRePassword');
+
+
 
     //首页路由
     Route::get('/','Admin\IndexController@index')->name('admin.index');
@@ -193,6 +215,11 @@ Route::group(['prefix'=>'admin'],function(){
     //产品删除颜色路由
     Route::get('/goods/goodColorDelete/{id}','Admin\GoodsController@goodColorDelete')->name('admin.goods.goodColorDelete');
 
+    //产品修改颜色路由
+    Route::get('/goods/goodColorEdit/{id}','Admin\GoodsController@goodColorEdit')->name('admin.goods.goodColorEdit');
+
+    //产品修改颜色处理路由
+    Route::post('/goods/goodColorUpdate/{id}','Admin\GoodsController@goodColorUpdate')->name('admin.goods.goodColorUpdate');
 
 
 
@@ -211,8 +238,34 @@ Route::group(['prefix'=>'admin'],function(){
     //产品添加规格处理路由
     Route::post('/goods/goodGuigeAdd/{id}','Admin\GoodsController@goodGuigeAdd')->name('admin.goods.goodGuigeAdd');
 
+    //产品修改路由
+    Route::get('/goods/goodGuigeEdit/{id}','Admin\GoodsController@goodGuigeEdit')->name('admin.goods.goodGuigeEdit');
+
+    //产品修改处理路由
+    Route::post('/goods/goodGuigeUpdate/{id}','Admin\GoodsController@goodGuigeUpdate')->name('admin.goods.goodGuigeUpdate');
+
     //产品删除规格色路由
     Route::get('/goods/goodGuigeDelete/{id}','Admin\GoodsController@goodGuigeDelete')->name('admin.goods.goodGuigeDelete');
+
+
+    /**
+     *
+     * 产品图路由
+     *
+     */
+
+    //产品效果图显示路由
+    Route::get('/goods/goodPicture/{id}','Admin\GoodsController@goodPicture')->name('admin.goods.goodPicture');
+
+    //产品效果图添加路由
+    Route::get('/goods/goodPictureCreate/{id}','Admin\GoodsController@goodPictureCreate')->name('admin.goods.goodPictureCreate');
+
+    //产品效果图添加处理路由
+    Route::post('/goods/goodPictureAdd/{id}','Admin\GoodsController@goodPictureAdd')->name('admin.goods.goodPictureAdd');
+
+    //产品效果图删除路由
+    Route::get('/goods/goodPictureDelete/{id}','Admin\GoodsController@goodPictureDelete')->name('admin.goods.goodPictureDelete');
+
 
 
     /**
@@ -241,9 +294,66 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 
+
+
+
 });
 
-//前台路由组
+
+//前台首页路由
+Route::get('/','Home\IndexController@index')->name('home.index');
+
+//前台登录路由
+Route::get('/home/login/','Home\LoginController@login')->name('home.login');
+
+//前台登录处理路由
+Route::post('/home/doLogin/','Home\LoginController@doLogin')->name('home.doLogin');
+
+
+
+
+//前台路由组  需要中间件
+Route::group(['prefix'=>'home','middleware' => 'homeFlag'],function(){
+
+    //前台用户退出路由
+    Route::get('/logout/','Home\LoginController@logout')->name('home.logout');
+
+    //商品详情路由
+    Route::get('/goods/info/{id}','Home\GoodsController@info')->name('home.goods.info');
+
+    /**
+     *
+     * 购物车路由
+     *
+     */
+
+    //加入购物车处理路由
+    Route::post('/carts/add/{id}','Home\CartController@cartsAdd')->name('home.carts.add');
+
+    //购物车详情路由
+    Route::get('/carts/index/','Home\CartController@index')->name('home.carts.index');
+
+    //删除购物车
+    Route::get('/carts/delete/{id}','Home\CartController@delete')->name('home.carts.delete');
+
+    /**
+     *
+     * 订单路由
+     *
+     */
+
+    //加入订单路由
+    Route::post('/order/beforeOrders/','Home\OrderController@beforeOrders')->name('home.order.beforeOrders');
+
+    //订单详情路由
+    Route::get('/orders/index','Home\OrderController@ordersIndex')->name('home.orders.index');
+
+
+
+});
+
+
+//前台路由组 无需中间件
 Route::group(['prefix'=>'home'],function(){
 
     /**
@@ -252,15 +362,16 @@ Route::group(['prefix'=>'home'],function(){
      *
      */
 
-    //首页路由
-    Route::get('/layout','Home\IndexController@layoutindex')->name('home.layoutindex');
-
-
-
+    //商品信息路由
+    Route::get('/goods/index/{id}','Home\GoodsController@index')->name('home.goods.index');
 
 });
-//首页路由
-Route::get('/','Home\IndexController@index')->name('home.index');
+
+
+
+
+
+
 
 
 

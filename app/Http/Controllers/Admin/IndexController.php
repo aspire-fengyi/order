@@ -328,5 +328,66 @@ class IndexController extends Controller
 
     }
 
+    //返回修改密码以及信息路由
+    function rePassword(Request $request,$id)
+    {
+        return view ('Admin.users.admin.rePassword');
+    }
+
+    //处理修改信息
+    function doRePassword(Request $request,$id)
+    {
+        //验证码判断
+        $this->validate($request, [
+            'phone' => 'required |regex:/^[1][3,4,5,7,8,9][0-9]{9}$/',
+            'password' => 'required |regex:/[\w]{6,}/',
+            'repassword' => 'required|same:password',
+            'yanzhengma' => 'required|captcha',
+        ], [
+            'phone.required' => '手机号必须填写',
+            'phone.regex' => '手机号格式不正确',
+            'password.required'  => '密码必须填写',
+            'password.regex'  => '密码格式不正确',
+            'repassword.required'  => '确认密码必须填写',
+            'repassword.same'  => '两次密码不一致',
+            'yanzhengma.required' => trans('验证码必须填写'),
+            'yanzhengma.captcha' => trans('验证码不正确'),
+        ]);
+
+        //接收所有数据
+        $data = $request->all();
+
+        //接收的原密码
+        $oldPassword = $data['oldPassword'];
+
+        $userPassword = session('adminUser')['password'];
+
+        $res = Hash::check($oldPassword,$userPassword);
+
+
+        if(!$res)
+        {
+            return back()->with('error','原密码输入不正确');
+        }
+
+        $user = AdminUser::find($id);
+
+        $user->sex = $data['sex'];
+
+        $user->phone = $data['phone'];
+
+        $user->date = $data['date'];
+
+        $user->password =Hash::make($data['password']);
+
+        $user->save();
+
+        session()->flush();
+        session(['adminFlag'=>false]);
+
+        return redirect('admin/login');
+
+    }
+
 
 }

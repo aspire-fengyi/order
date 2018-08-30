@@ -63,11 +63,9 @@
 
                                     <td class="text-center">
                                         @if($hezuoshang->jibie==0)
-                                            普通代理
+                                            合作商
                                         @elseif($hezuoshang->jibie==1)
-                                            市级代理
-                                        @elseif($hezuoshang->jibie==2)
-                                            省级代理
+                                            代理商
                                         @endif
                                     </td>
 

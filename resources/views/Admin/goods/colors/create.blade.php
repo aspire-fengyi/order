@@ -56,7 +56,7 @@
 									<span class="input-group-addon">
 										<i class="fa fa-picture-o"></i>
 									</span>
-                            <input name="color_image" type="file" class="form-control1" placeholder="产品颜色图片" >
+                            <input name="color_image" type="file" class="form-control1" required="" placeholder="产品颜色图片" >
                         </div>
                     </div>
                 </div>

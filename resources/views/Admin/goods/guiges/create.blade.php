@@ -30,12 +30,24 @@
         </div>
     @endif
 
-    {{--管理员添加--}}
+    {{--规格添加--}}
     <div class="grid-form1">
         <h3>产品规格添加</h3>
         <div class="panel-body">
             <form action="<?php echo route('admin.goods.goodGuigeAdd', ['id' => $good_id]);?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{csrf_field()}}
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">产品编码</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa    fa-plus-circle"></i>
+									</span>
+                            <input name="bianma" type="text" class="form-control1" placeholder="请输入产品编码" required="" value="{{old('bianma')}}">
+                        </div>
+                    </div>
+                </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">产品规格</label>
@@ -44,7 +56,56 @@
 									<span class="input-group-addon">
 										<i class="fa    fa-plus-circle"></i>
 									</span>
-                            <input name="guige" type="text" class="form-control1" placeholder="请输入产品规格,例如100*100mm,1kg/桶" required="" value="{{old('model')}}">
+                            <input name="guige" type="text" class="form-control1" placeholder="请输入产品规格,例如100*100×3(mm),1kg/桶" required="" value="{{old('model')}}">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">对应规格描述</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa  fa-plus-circle"></i>
+									</span>
+                            <textarea name="guige_desc" id="" cols="68" placeholder="请输入当前产品规格描述" required=""   value="{{old('desc')}}"  rows="4"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">市场价</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-money"></i>
+									</span>
+                            <input name="shichang_price" type="text" class="form-control1" placeholder="请输入产品市场价" required="" value="{{old('shichang_price')}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">合作价</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-money"></i>
+									</span>
+                            <input name="hezuo_price" type="text" class="form-control1" placeholder="请输入产品合作价" required="" value="{{old('hezuo_price')}}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label">代理价</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-money"></i>
+									</span>
+                            <input name="daili_price" type="text" class="form-control1" placeholder="请输入产品代理价" required="" value="{{old('daili_price')}}">
                         </div>
                     </div>
                 </div>

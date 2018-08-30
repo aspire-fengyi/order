@@ -114,117 +114,116 @@
                                 @foreach($vv->goods as $good)
 
                                     {{--运用商品模型一对多型号模型，查找商品详情--}}
-                                        <div>
-                                            <h3>{{$good->goodModel->good_name}}</h3>
+                                    <div>
+                                        <h3>{{$good->goodModel->good_name}}</h3>
 
-                                            <table id="table-two-axis" class="two-axis text-center ">
-                                                <thead>
-                                                <tr class="text-center">
-                                                    <th class="text-center">id</th>
-                                                    <th class="text-center">编码</th>
-                                                    <th class="text-center"><a
-                                                                href="<?php echo route('admin.goods.goodColor', ['id' => $good->id]); ?>"
-                                                                style="text-decoration:none; color:#a2d200; font-size: 16px"><b>颜色</b></a>
-                                                    </th>
-                                                    <th class="text-center"><a
-                                                                href="<?php echo route('admin.goods.goodGuige', ['id' => $good->id]); ?>"
-                                                                style="text-decoration:none; color:#a2d200; font-size: 16px"><b>规格</b></a>
-                                                    </th>
-                                                    <th class="text-center">价格</th>
-                                                    <th class="text-center">状态</th>
-                                                    <th class="text-center">描述</th>
-                                                    <th class="text-center">缩略图</th>
-                                                    <th class="text-center">操作</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
+                                        产品描述：{{$good->goodModel->desc}}
 
-                                                <tr>
-                                                    <td class="text-center">{{$good->goodModel->id}}</td>
-                                                    <td class="text-center">{{$good->goodModel->bianma}}</td>
-                                                    <td class="text-center">
-                                                        <ul style="list-style: none;" class="text-left">
-                                                            @foreach($good->goodColors as $goodColor)
+                                        <table id="table-two-axis" class="two-axis text-center ">
+                                            <thead>
+                                            <tr class="text-center">
+                                                <th class="text-center">产品id</th>
+                                                <th class="text-center">编码</th>
+                                                <th class="text-center"><a
+                                                            href="<?php echo route('admin.goods.goodColor', ['id' => $good->id]); ?>"
+                                                            style="text-decoration:none; color:#a2d200; font-size: 16px"><b>颜色</b></a>
+                                                </th>
+                                                <th class="text-center"><a
+                                                            href="<?php echo route('admin.goods.goodGuige', ['id' => $good->id]); ?>"
+                                                            style="text-decoration:none; color:#a2d200; font-size: 16px"><b>规格</b></a>
+                                                </th>
+                                                <th class="text-center">价格：元/{{$good->goodModel->price_desc}}</th>
+                                                <th class="text-center">状态</th>
+                                                <th class="text-center">规格描述</th>
+                                                <th class="text-center"><a
+                                                            href="<?php echo route('admin.goods.goodPicture', ['id' => $good->id]); ?>"
+                                                            style="text-decoration:none; color:#a2d200; font-size: 16px"><b>产品图</b></a>
+                                                </th>
+                                                <th class="text-center">操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                                <li style="margin: 5px 0;">
-                                                                    {{$goodColor->color}}
-                                                                </li>
-
-                                                            @endforeach
-                                                        </ul>
-
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <ul style="list-style: none;" class="text-left">
-                                                            @foreach($good->goodGuiges as $goodGuige)
-
-                                                                <li style="margin: 5px 0;">
-                                                                    {{$goodGuige->guige}}
-                                                                </li>
-
-                                                            @endforeach
-                                                        </ul>
-
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <ul style="list-style: none;" class="text-left">
+                                            @foreach($good->goodGuiges as $goodGuige )
+                                            <tr>
+                                                <td class="text-center">{{$good->id}}</td>
+                                                <td class="text-center">{{$goodGuige->bianma}}</td>
+                                                <td class="text-center">
+                                                    <ul style="list-style: none;" class="text-left">
+                                                        @foreach($good->goodColors as $goodColor)
 
                                                             <li style="margin: 5px 0;">
-                                                                市场价：{{$good->goodModel->shichang_price.'元/'.$good->goodModel->price_desc}}
+                                                                {{$goodColor->color}}
                                                             </li>
-                                                            <li style="margin: 5px 0;">
-                                                                合作价：{{$good->goodModel->hezuo_price.'元/'.$good->goodModel->price_desc}}
-                                                            </li>
-                                                            <li style="margin: 5px 0;">
-                                                                代理价：{{$good->goodModel->daili_price.'元/'.$good->goodModel->price_desc}}
-                                                            </li>
-                                                        </ul>
-                                                    </td>
+
+                                                        @endforeach
+                                                    </ul>
+
+                                                </td>
+                                                <td class="text-center">
+                                                    {{$goodGuige->guige}}
+
+                                                </td>
+                                                <td class="text-center">
+                                                    <ul style="list-style: none;" class="text-left">
+
+                                                        <li style="margin: 5px 0;">
+                                                            市场价：{{$goodGuige->shichang_price}}
+                                                        </li>
+                                                        <li style="margin: 5px 0;">
+                                                            合作价：{{$goodGuige->hezuo_price}}
+                                                        </li>
+                                                        <li style="margin: 5px 0;">
+                                                            代理价：{{$goodGuige->daili_price}}
+                                                        </li>
+                                                    </ul>
+                                                </td>
 
 
-                                                    <td class="text-center">
-                                                        @if($good->goodModel->status==1)
-                                                            上架
-                                                        @elseif($good->goodModel->status==2)
-                                                            新品
-                                                        @elseif($good->goodModel->status==0)
-                                                            下架
-                                                        @endif
-                                                    </td>
-                                                    <td class="text-center">{{$good->goodModel->desc}}</td>
-                                                    <td class="text-center">
-                                                        <img src="{{$good->goodModel->image_path}}" alt="产品缩略图"
-                                                             style="height: 80px;width: 150px">
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <ul style="list-style: none;" class="text-center">
+                                                <td class="text-center">
+                                                    @if($good->goodModel->status==1)
+                                                        上架
+                                                    @elseif($good->goodModel->status==2)
+                                                        新品
+                                                    @elseif($good->goodModel->status==0)
+                                                        下架
+                                                    @endif
+                                                </td>
+                                                <td class="text-center">{{$goodGuige->guige_desc}}</td>
+                                                <td class="text-center">
+                                                    <img src="{{$good->goodModel->image_path}}" alt="产品缩略图"
+                                                         style="height: 80px;width: 150px">
+                                                </td>
+                                                <td class="text-center">
+                                                    <ul style="list-style: none;" class="text-center">
 
 
-                                                            <li style="margin: 5px 0;" class="text-center">
-                                                                <a href="<?php echo route('admin.goods.edit', ['id' => $good->id]); ?>"
-                                                                   onclick="return confirm('确认要修改该商品?');">
-                                                                    <button class="btn btn-info text-center"
-                                                                            style="width: 110px;">修改
-                                                                    </button>
-                                                                </a>
-                                                            </li>
-                                                            <li style="margin: 5px 0;" class="text-center">
-                                                                <a href="<?php echo route('admin.goods.delete', ['id' => $good->id]); ?>"
-                                                                   onclick="return confirm('确认要删除该商品吗?');">
-                                                                    <button class="btn btn-danger text-center"
-                                                                            style="width: 110px;">删除
-                                                                    </button>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
+                                                        <li style="margin: 5px 0;" class="text-center">
+                                                            <a href="<?php echo route('admin.goods.edit', ['id' => $good->id]); ?>"
+                                                               onclick="return confirm('确认要修改该商品?');">
+                                                                <button class="btn btn-info text-center"
+                                                                        style="width: 110px;">修改
+                                                                </button>
+                                                            </a>
+                                                        </li>
+                                                        <li style="margin: 5px 0;" class="text-center">
+                                                            <a href="<?php echo route('admin.goods.delete', ['id' => $good->id]); ?>"
+                                                               onclick="return confirm('确认要删除该商品吗?');">
+                                                                <button class="btn btn-danger text-center"
+                                                                        style="width: 110px;">删除
+                                                                </button>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
 
-                                                    </td>
-                                                </tr>
+                                                </td>
+                                            </tr>
+                                                @endforeach
 
-                                                </tbody>
-                                            </table>
+                                            </tbody>
+                                        </table>
 
-                                        </div>
+                                    </div>
 
                                 @endforeach
 

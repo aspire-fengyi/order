@@ -47,7 +47,7 @@ class AdminUsersAddRequest extends FormRequest
     {
         return [
             'name.required' => '姓名必须填写',
-            'name.unique' => '管理员已存在',
+            'name.unique' => '该管理员已被注册',
             'name.regex' => '姓名格式不正确',
 
             'sex.required'  => '性别必须填写',
@@ -61,7 +61,7 @@ class AdminUsersAddRequest extends FormRequest
             'password.required'  => '密码必须填写',
             'password.regex'  => '密码格式不正确',
 
-            'repassword.required'  => '验证密码必须填写',
+            'repassword.required'  => '确认密码必须填写',
             'repassword.same'  => '两次密码不一致',
 
             'date.required'  => '出生日期',
