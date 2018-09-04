@@ -46,8 +46,20 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+
+
+        /* 错误页面 */
+        if ($e instanceof \HttpException) {
+            $code = $e->getStatusCode();
+
+            if (view()->exists('errors.' . $code)) {
+                $message  = $e->getMessage();
+                return response()->view('errors.' . $e->getStatusCode(), ['message'=>$message], $e->getStatusCode());
+            }
+        }
+        return parent::render($request, $e);
     }
+
 }

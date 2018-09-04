@@ -257,6 +257,12 @@ class IndexController extends Controller
         //获取管理员信息
         $admin_user = AdminUser::find($id);
 
+        $users= $admin_user->users;
+
+        if($users){
+            return back()->with('error', '该管理员拥有合作商,请先删除合作,商再执行此操作');
+        }
+
         //找到图片路径
         $image = $admin_user->photo_path;
 
@@ -265,7 +271,7 @@ class IndexController extends Controller
 
         if ($res) {
             unlink('.' . $image);
-            return redirect('/admin/users/admin_index_fenji')->with('success', '删除成功');
+            return redirect('/admin/users/admin_index')->with('success', '删除成功');
         } else {
             return back()->with('error', '删除失败');
         }
@@ -385,7 +391,7 @@ class IndexController extends Controller
         session()->flush();
         session(['adminFlag'=>false]);
 
-        return redirect('admin/login');
+        return redirect('admin/login')->with('success','修改密码成功,请重新登录');
 
     }
 

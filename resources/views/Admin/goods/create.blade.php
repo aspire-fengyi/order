@@ -51,7 +51,7 @@
 
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label">产品描述</label>
+                    <label class="col-md-2 control-label">产品介绍</label>
                     <div class="col-md-8">
                         <div class="input-group">
 									<span class="input-group-addon">
@@ -106,7 +106,7 @@
 									<span class="input-group-addon">
 										<i class="fa   fa-money"></i>
 									</span>
-                            <input name="price_number" type="text" class="form-control1" placeholder="如果是板材，将面积算出来，如果是线条，将长度写出来，价格单位，写整数" required="" value="{{old('price_desc')}}">
+                            <input name="price_number" type="text" class="form-control1" placeholder="如果是板材，将面积算出来，如果是线条，将长度写出来，价格单位，4舍5如保留两位小数" required="" value="{{old('price_desc')}}">
                         </div>
                     </div>
                 </div>

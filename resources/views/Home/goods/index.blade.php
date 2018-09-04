@@ -15,15 +15,15 @@
         <div class="property">
             <div class="left">
                 <div class="left_top">
-                    <img src="{{$good->goodModel->image_path}}" class="jqzoom" >
+                    <img  style="height: 310px;width: 400px" src="{{$good->goodModel->image_path}}" class="jqzoom" >
                     <a href="#" class="search"></a>
                 </div>
                 <div class="pics">
                     <div id="scroll" class="owl-carousel">
-                        <a href="#" class="item current"><img src="{{$good->goodModel->image_path}}"></a>
+                        <img class="small_img item current"  src="{{$good->goodModel->image_path}}">
 
                         @foreach($good->goodPictures as $goodPicture)
-                        <a href="#" class="item"><img src="{{$goodPicture->picture_path}}"></a>
+                        <img class="small_img item" src="{{$goodPicture->picture_path}}">
                         @endforeach
 
 
@@ -34,12 +34,31 @@
                 $(function() {
                     $(".jqzoom").imagezoom();
 
+
+
                     $('#scroll').owlCarousel({
                         items: 4,
                         autoPlay: false,
                         navigation: true,
                         navigationText: ["",""],
                         scrollPerPage: true
+                    });
+
+
+                });
+            </script>
+            <script>
+                $(function() {
+                    $(".small_img").click(function(){
+
+
+
+                        var jqzoom_src = $(this).attr('src');
+
+                        $(".jqzoom").attr("src", jqzoom_src);
+                        $(this).addClass('current');
+                        $(this).parent().siblings().children().removeClass('current');
+
                     });
                 });
             </script>
@@ -48,22 +67,16 @@
                 @foreach($good->goodGuiges as $k=>$goodGuige )
                     @if($k==0)
 
-                        @if(session('homeUser')['jibie']==2)
+                        @if(session('homeUser')['jibie']==1)
                             <div class="aa">
                                 <span class="a">价格</span>
                                 <span class="b">￥{{$goodGuige->daili_price}}</span>
                                 <span class="d">市场价 ￥{{$goodGuige->shichang_price}}</span>
                             </div>
-                        @elseif(session('homeUser')['jibie']==1)
-                            <div class="aa">
-                                <span class="a">价格</span>
-                                <span class="b">￥{{$goodGuige->hezuo_price}}</span>
-                                <span class="d">市场价 ￥{{$goodGuige->shichang_price}}</span>
-                            </div>
                         @elseif(session('homeUser')['jibie']==0)
                             <div class="aa">
                                 <span class="a">价格</span>
-                                <span class="b">￥{{$goodGuige->shichang_price}}</span>
+                                <span class="b">￥{{$goodGuige->hezuo_price}}</span>
                                 <span class="d">市场价 ￥{{$goodGuige->shichang_price}}</span>
                             </div>
                         @else
@@ -76,11 +89,6 @@
                         @endif
 
                     @endif()
-
-
-
-
-
                 @endforeach
                 <table>
                     <tr>

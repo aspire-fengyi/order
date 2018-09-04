@@ -60,6 +60,7 @@ class GoodsController extends Controller
         return view('Admin.goods.create', ['categories_data' => self::get_categories_data()]);
     }
 
+
     //添加商品
     function add(Request $request)
     {
@@ -183,7 +184,7 @@ class GoodsController extends Controller
 
         $good_guige->daili_price = $data['daili_price'];
 
-        $good_guige->daili_price = $data['price_number'];
+        $good_guige->price_number = $data['price_number'];
 
         $res4 = $good_guige->save();
 

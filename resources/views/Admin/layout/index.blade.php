@@ -77,7 +77,7 @@
 
                     <!--search-box-->
                     <div class="w3-search-box">
-                        <form action="#" method="post">
+                        <form >
                             <input type="text" placeholder="搜索..." required="">
                             <input type="submit" value="">
                         </form>
@@ -90,138 +90,64 @@
                             <li class="dropdown head-dpdn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                                             class="fa fa-envelope"></i><span class="badge">3</span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="notification_header">
-                                            <h3>You have 3 new messages</h3>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in11.jpg" alt="">
-                                            </div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor</p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li class="odd"><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in10.jpg" alt="">
-                                            </div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor </p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in9.jpg" alt=""></div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor</p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li>
-                                        <div class="notification_bottom">
-                                            <a href="#">See all messages</a>
-                                        </div>
-                                    </li>
-                                </ul>
                             </li>
                             <li class="dropdown head-dpdn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                                             class="fa fa-bell"></i><span class="badge blue">3</span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="notification_header">
-                                            <h3>You have 3 new notification</h3>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in8.jpg" alt=""></div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor</p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li class="odd"><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in6.jpg" alt=""></div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor</p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <div class="user_img"><img src="/adminTemplate/images/in7.jpg" alt=""></div>
-                                            <div class="notification_desc">
-                                                <p>Lorem ipsum dolor</p>
-                                                <p><span>1 hour ago</span></p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </a></li>
-                                    <li>
-                                        <div class="notification_bottom">
-                                            <a href="#">See all notifications</a>
-                                        </div>
-                                    </li>
-                                </ul>
                             </li>
                             <li class="dropdown head-dpdn">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
                                             class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="notification_header">
-                                            <h3>You have 8 pending task</h3>
-                                        </div>
-                                    </li>
-                                    <li><a href="#">
-                                            <div class="task-info">
-                                                <span class="task-desc">Database update</span><span class="percentage">40%</span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="progress progress-striped active">
-                                                <div class="bar yellow" style="width:40%;"></div>
-                                            </div>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <div class="task-info">
-                                                <span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="progress progress-striped active">
-                                                <div class="bar green" style="width:90%;"></div>
-                                            </div>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <div class="task-info">
-                                                <span class="task-desc">Mobile App</span><span
-                                                        class="percentage">33%</span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="progress progress-striped active">
-                                                <div class="bar red" style="width: 33%;"></div>
-                                            </div>
-                                        </a></li>
-                                    <li><a href="#">
-                                            <div class="task-info">
-                                                <span class="task-desc">Issues fixed</span><span
-                                                        class="percentage">80%</span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="progress progress-striped active">
-                                                <div class="bar  blue" style="width: 80%;"></div>
-                                            </div>
-                                        </a></li>
-                                    <li>
-                                        <div class="notification_bottom">
-                                            <a href="#">See all pending tasks</a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                {{--<ul class="dropdown-menu">--}}
+                                    {{--<li>--}}
+                                        {{--<div class="notification_header">--}}
+                                            {{--<h3>You have 8 pending task</h3>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                    {{--<li><a href="#">--}}
+                                            {{--<div class="task-info">--}}
+                                                {{--<span class="task-desc">Database update</span><span class="percentage">40%</span>--}}
+                                                {{--<div class="clearfix"></div>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="progress progress-striped active">--}}
+                                                {{--<div class="bar yellow" style="width:40%;"></div>--}}
+                                            {{--</div>--}}
+                                        {{--</a></li>--}}
+                                    {{--<li><a href="#">--}}
+                                            {{--<div class="task-info">--}}
+                                                {{--<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>--}}
+                                                {{--<div class="clearfix"></div>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="progress progress-striped active">--}}
+                                                {{--<div class="bar green" style="width:90%;"></div>--}}
+                                            {{--</div>--}}
+                                        {{--</a></li>--}}
+                                    {{--<li><a href="#">--}}
+                                            {{--<div class="task-info">--}}
+                                                {{--<span class="task-desc">Mobile App</span><span--}}
+                                                        {{--class="percentage">33%</span>--}}
+                                                {{--<div class="clearfix"></div>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="progress progress-striped active">--}}
+                                                {{--<div class="bar red" style="width: 33%;"></div>--}}
+                                            {{--</div>--}}
+                                        {{--</a></li>--}}
+                                    {{--<li><a href="#">--}}
+                                            {{--<div class="task-info">--}}
+                                                {{--<span class="task-desc">Issues fixed</span><span--}}
+                                                        {{--class="percentage">80%</span>--}}
+                                                {{--<div class="clearfix"></div>--}}
+                                            {{--</div>--}}
+                                            {{--<div class="progress progress-striped active">--}}
+                                                {{--<div class="bar  blue" style="width: 80%;"></div>--}}
+                                            {{--</div>--}}
+                                        {{--</a></li>--}}
+                                    {{--<li>--}}
+                                        {{--<div class="notification_bottom">--}}
+                                            {{--<a href="#">See all pending tasks</a>--}}
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
                             </li>
                             <div class="clearfix"></div>
                         </ul>
@@ -313,6 +239,7 @@
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
 
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a
@@ -320,24 +247,30 @@
                         <li id="menu-academico-avaliacoes"><a
                                     href="<?php echo route('admin.users.admin_leader_index'); ?>">权限显示</a></li>
                     </ul>
+                    @endif
+
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa   fa-user" aria-hidden="true"></i><span>管理员管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
 
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_create'); ?>">管理员添加</a></li>
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index'); ?>">管理员显示</a></li>
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.admin_index_fenji'); ?>">管理员分级显示</a></li>
                     </ul>
+                    @endif
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa   fa-users" aria-hidden="true"></i><span>合作商管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
                     <ul id="menu-academico-sub">
+                        @if(session('adminUser')['leader_id']==1)
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.create') ?>">合作商添加</a></li>
+                        @endif
 
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.index') ?>">合作商列表</a></li>
 
@@ -348,27 +281,43 @@
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
+
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.categories.create') ?>">产品类别添加</a></li>
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.categories.index') ?>">产品类别列表</a></li>
                     </ul>
+                    @endif
+
                 </li>
                 <li id="menu-academico"><a href="#"><i class="fa  fa-glide" aria-hidden="true"></i><span>产品管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
+
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.goods.create') ?>">产品添加</a></li>
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.goods.index') ?>">产品列表</a></li>
                     </ul>
+                    @endif
+
                 </li>
-                <li id="menu-academico"><a href="#"><i class="fa     fa-align-justify" aria-hidden="true"></i><span>订单管理</span>
+                <li id="menu-academico"><a href="#"><i class="fa fa-align-justify" aria-hidden="true"></i><span>订单管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
+
                     <ul id="menu-academico-sub">
-                        <li id="menu-academico-avaliacoes"><a href="">订单列表</a></li>
+
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.orders.index') ?>">全部订单</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.orders.new') ?>">新增订单</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.orders.daifahuo') ?>">未处理订单</a></li>
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.orders.yifahuo') ?>">已处理订单</a></li>
                     </ul>
+                    @endif
+
                 </li>
 
                 <li id="menu-academico">
@@ -376,10 +325,14 @@
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>
                     </a>
+                    @if(session('adminUser')['leader_id']==1)
+
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.lunbos.create') ?>">轮播图添加</a></li>
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.lunbos.index') ?>">轮播图列表</a></li>
                     </ul>
+                    @endif
+
                 </li>
 
             </ul>

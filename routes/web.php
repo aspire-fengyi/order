@@ -293,6 +293,32 @@ Route::group(['prefix'=>'admin','middleware' => 'adminFlag'],function(){
     Route::get('/lunbos/yincang/{id}','Admin\LunbosController@yincang')->name('admin.lunbos.yincang');
 
 
+    /**
+     *
+     * 订单路由
+     *
+     */
+
+    //订单列表
+    Route::get('/orders/index','Admin\OrdersController@index')->name('admin.orders.index');
+
+    //新增订单列表
+    Route::get('/orders/new','Admin\OrdersController@new')->name('admin.orders.new');
+
+    //待发货订单列表
+    Route::get('/orders/daifahuo','Admin\OrdersController@daifahuo')->name('admin.orders.daifahuo');
+
+    //已发货订单列表
+    Route::get('/orders/yifahuo','Admin\OrdersController@yifahuo')->name('admin.orders.yifahuo');
+
+    //订单详情
+    Route::get('/orders/info/{id}','Admin\OrdersController@info')->name('admin.orders.info');
+
+    //修改订单状态路由
+    Route::post('/orders/status/{id}','Admin\OrdersController@status')->name('admin.orders.status');
+
+    //打印订单路由
+    Route::get('/orders/info_dayin/{id}','Admin\OrdersController@info_dayin')->name('admin.orders.info_dayin');
 
 
 
@@ -301,7 +327,8 @@ Route::group(['prefix'=>'admin','middleware' => 'adminFlag'],function(){
 
 
 //前台首页路由
-Route::get('/','Home\IndexController@index')->name('home.index');
+Route::get('/{id?}','Home\IndexController@index')->name('home.index');
+
 
 //前台登录路由
 Route::get('/home/login/','Home\LoginController@login')->name('home.login');
@@ -321,6 +348,7 @@ Route::group(['prefix'=>'home','middleware' => 'homeFlag'],function(){
     //商品详情路由
     Route::get('/goods/info/{id}','Home\GoodsController@info')->name('home.goods.info');
 
+
     /**
      *
      * 购物车路由
@@ -336,6 +364,29 @@ Route::group(['prefix'=>'home','middleware' => 'homeFlag'],function(){
     //删除购物车
     Route::get('/carts/delete/{id}','Home\CartController@delete')->name('home.carts.delete');
 
+
+
+
+    /**
+     *
+     * 收货地址路由
+     *
+     */
+
+    //添加收货地址路由
+    Route::get('/addr/create','Home\AddrController@create')->name('home.addr.create');
+
+    //添加收货地址处理路由
+    Route::post('/addr/add/{id}','Home\AddrController@add')->name('home.addr.add');
+
+    //修改收货地址路由
+    Route::get('/addr/edit/{id}','Home\AddrController@edit')->name('home.addr.edit');
+
+    //修改收货地址处理路由
+    Route::post('/addr/update/{id}','Home\AddrController@update')->name('home.addr.update');
+
+
+
     /**
      *
      * 订单路由
@@ -343,10 +394,44 @@ Route::group(['prefix'=>'home','middleware' => 'homeFlag'],function(){
      */
 
     //加入订单路由
-    Route::post('/order/beforeOrders/','Home\OrderController@beforeOrders')->name('home.order.beforeOrders');
+    Route::post('/order/order/add/','Home\OrderController@orderAdd')->name('home.order.orderAdd');
 
     //订单详情路由
-    Route::get('/orders/index','Home\OrderController@ordersIndex')->name('home.orders.index');
+    Route::get('/orders/index/','Home\OrderController@index')->name('home.orders.index');
+
+    //提交订单成功显示路由
+    Route::get('/order/success/{id}','Home\OrderController@success')->name('home.order.success');
+
+    //确认付款路由
+    Route::get('/order/fukuan/{id}','Home\OrderController@fukuan')->name('home.order.fukuan');
+
+    //确认收货路由
+    Route::get('/order/shouhuo/{id}','Home\OrderController@shouhuo')->name('home.order.shouhuo');
+
+    //软删除订单路由
+    Route::get('/order/softDelete/{id}','Home\OrderController@softDelete')->name('home.order.softDelete');
+
+    //订单回收站路由
+    Route::get('/order/laJiOrders','Home\OrderController@laJiOrders')->name('home.order.laJiOrders');
+
+    //恢复订单路由
+    Route::get('/order/huiFuOrder/{id}','Home\OrderController@huiFuOrder')->name('home.order.huiFuOrder');
+
+    //彻底删除订单路由
+    Route::get('/order/delete/{id}','Home\OrderController@delete')->name('home.order.delete');
+
+
+    /**
+     *
+     * 用户修改密码路由
+     *
+     */
+
+    //修改密码显示页面
+    Route::get('/user/resPassword/{id}','Home\IndexController@rePassword')->name('home.user.rePassword');
+
+    //修改密码处理路由
+    Route::post('/user/passwordUpdate/{id}','Home\IndexController@passwordUpdate')->name('home.user.passwordUpdate');
 
 
 

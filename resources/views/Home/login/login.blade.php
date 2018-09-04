@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
-    <title>杨电网</title>
+    <title>未来空间商品网</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <link href="/homeTemplate/css/login.css" type="text/css" rel="stylesheet"/>
@@ -39,10 +39,10 @@
 <!----------------------中间------------------------->
 <div class="red">
     <div class="wt1080 login">
-        <div class="login_pic"><img src="/homeTemplate/image/login.jpg"></div>
-        <div class="l_k">
+        <div class="login_pic"></div>
+        <div class="l_k" style="height: auto">
             <div class="l_k_t">
-                <span class="one">登陆洋店</span>
+                <span class="one">登陆</span>
                 <span class='two'>还没有帐号？<a href="#">30秒注册</a></span>
             </div>
 
@@ -72,14 +72,12 @@
                                 </ul>
                             </div>
                         @endif
+
+
+
                 <input type="submit" class="s_login" value="马上登陆">
                 <span class="xie"></span>
             </form>
-
-
-
-
-
 
         </div>
         <div class="clear"></div>
@@ -93,7 +91,7 @@
         <li><a href="#">招商合作</a></li>
         <li><a href="#">销售联盟</a></li>
     </ul>
-    <p>Copyright © 2016 洋店网.版权所有.备案号：京ICP证35124521号.技术支持：西部网络</p>
+    <p>Copyright©2018 CYXM178.COM. All Rights Reserved 北京宋庄创意工场科技有限公司 版权所有.备案号：京ICP备16028356号-6</p>
 </div>
 
 </body>

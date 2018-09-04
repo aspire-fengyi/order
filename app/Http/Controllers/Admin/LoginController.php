@@ -62,8 +62,7 @@ class LoginController extends Controller
     //管理员退出路由
     function logout(Request $request)
     {
-        session()->flush();
-        session(['adminFlag' => false]);
+        $request->session()->flush();
         return redirect('admin/login');
     }
 }

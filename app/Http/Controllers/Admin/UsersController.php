@@ -8,6 +8,7 @@ use App\Models\AdminUser;
 use App\Models\AdminLeader;
 use App\Models\User;
 use App\Models\UserAddr;
+use App\Models\Order;
 use App\Models\UserInfo;
 use App\Http\Requests\UsersAddRequest;
 use App\Http\Requests\UsersUpdateRequest;
@@ -67,7 +68,7 @@ class UsersController extends Controller
         $data = self::getPidLeaders(1);
 
 
-        return view('Admin.users.users.index', ['users' => $data]);
+        return view('Admin.users.users.index_fenzu', ['users' => $data]);
 
     }
 
@@ -79,7 +80,7 @@ class UsersController extends Controller
         $data = self::getPidLeaders(1);
 
 
-        return view('Admin.users.users.index_he', ['users' => $data]);
+        return view('Admin.users.users.index', ['users' => $data]);
 
     }
 
@@ -193,7 +194,7 @@ class UsersController extends Controller
         if ($res1 && $res2 && $res3) {
 
             DB::commit();
-            return redirect('/admin/users/index_fenzu')->with('success', '添加成功');
+            return redirect('/admin/users/index')->with('success', '添加成功');
 
         } else {
 
@@ -210,10 +211,14 @@ class UsersController extends Controller
 
         $user_data = User::find($id);
 
+        $user_id = $user_data->id;
+
+        $orders = Order::where('user_id',$user_id)->orderBy('id','desc')->get();
+
         //一对多，返回数组
         $user_addrs = $user_data->userAddrs;
 
-        return view('Admin.users.users.user_info', ['user_data' => $user_data, 'user_addrs' => $user_addrs]);
+        return view('Admin.users.users.user_info', ['user_data' => $user_data, 'user_addrs' => $user_addrs,'orders'=>$orders]);
     }
 
     //后台修改合作路由

@@ -44,7 +44,7 @@
 									<span class="input-group-addon">
 										<i class="fa   fa-map-marker"></i>
 									</span>
-                            <input name="addr" type="text" class="form-control1" placeholder="请输入收货地址" required="" value="{{$addr->addr}}">
+                            <input name="addr" type="text" class="form-control1" placeholder="请输入收货地址,例:北京市,通州区,宋庄,创意工厂科技有限公司" required="" value="{{$addr->addr}}">
                         </div>
                     </div>
                 </div>

@@ -4,126 +4,167 @@
 
 
 
-    <div class="wt1080">
-        <!--------------标题----------->
-        <div class="my_order">
-            <h1>提交订单</h1>
-            <div class="place">
+    <!-----------------内容------------------>
+    <div class="wt1080 middle">
+        <div class="fl">
+            <div style="padding: 0 24px;"><h1>用户名称</h1></div>
+            <ul>
+                <li class="current"><a href="/home/orders/index/">我的订单</a></li>
 
-            </div>
+                <li><a href="/home/carts/index/">我的购物车</a></li>
+            </ul>
         </div>
-
-        <!---------------订单信息-------------->
-        <div class="order_details">
-            <div class="roo">订单信息<span></span></div>
-            <div class="tt">
-                <table>
-                    <tr>
-                        <th width="50%">商品</th>
-                        <th width="16%">单价</th>
-                        <th width="16%">数量</th>
-                        <th width="18%">小计</th>
-                    </tr>
-                    @foreach($user->beforeOrders as $beforeOrder)
-
-                        <tr>
-                            <td>
-                                <div class="pic"><img src="{{$beforeOrder->cart->good->goodModel->image_path}}"></div>
-                                <p class="one"><a href="#">{{$beforeOrder->cart->good->good_name}}--{{$beforeOrder->cart->goodGuige->guige}}</a></p>
-                                <p class="two">{{$beforeOrder->cart->goodColor->color}}</p>
-                            </td>
-                            <td><span class="e">￥{{$beforeOrder->cart->price}} 元/{{$beforeOrder->cart->good->goodModel->price_desc}}</span></td>
-                            <td>{{$beforeOrder->cart->number}}</td>
-                            <td><span class="u">￥{{$beforeOrder->cart->number * $beforeOrder->cart->price_number * $beforeOrder->cart->price}}</span></td>
-                        </tr>
-
-                    @endforeach
-
-                </table>
-            </div>
-        </div>
-
-
-
-        <div class="coupon">
-            <div class="kk">
-                <table>
-                    <tr>
-                        <td>共{{$totalNumber}}件商品，商品总金额：</td>
-                        <td>{{$totalPrice}}元</td>
-                    </tr>
-                    <tr>
-                        <td>+运费：</td>
-                        <td>￥0.00</td>
-                    </tr>
-                    <tr>
-                        <td>+关税：</td>
-                        <td>￥0.00</td>
-                    </tr>
-                </table>
-                <p class="money">应付余额：<span>￥<font>{{$totalPrice}}元</font></span></p>
-            </div>
-            <div class='clear'></div>
-
-            <!-------------收货地址-------------->
-            <div class="address">
-                <div class="roo">选择收货地址<span></span></div>
-                <div class="b_address">
-                    <ul>
-                        <li class="current">
-                            <h1>张新<span>159****3994</span></h1>
-                            <p>四川省 成都市 武侯区 大石西路130号还是觉得撒借款单萨科技哈撒艰苦的空间撒开回到家撒快点撒花</p>
-                            <p>身份证号码：510524********1905</p>
-                            <div class="operate">
-                                <a href="#" class="edit">编辑</a>
-                                <a href="#" class="del">删除</a>
-                            </div>
-                            <div class="check"></div>
-                        </li>
-                        <li>
-                            <h1>张新<span>159****3994</span></h1>
-                            <p>四川省 成都市 武侯区 大石西路130号还是觉得撒借款单萨科技哈撒艰苦的空间撒开回到家撒快点撒花</p>
-                            <p>身份证号码：510524********1905</p>
-                            <div class="operate">
-                                <a href="#" class="edit">编辑</a>
-                                <a href="#" class="del">删除</a>
-                            </div>
-                            <div class="check"></div>
-                        </li>
-                        <li>
-                            <h1>张新<span>159****3994</span></h1>
-                            <p>四川省 成都市 武侯区 大石西路130号还是觉得撒借款单萨科技哈撒艰苦的空间撒开回到家撒快点撒花</p>
-                            <p>身份证号码：510524********1905</p>
-                            <div class="operate">
-                                <a href="#" class="edit">编辑</a>
-                                <a href="#" class="del">删除</a>
-                            </div>
-                            <div class="check"></div>
-                        </li>
-
-                    </ul>
-                    <div class="add_address"><a href="#">添加地址</a></div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
-            <!---------------委托下的版本---------------->
-            <div class="ll">
-                <div class="bb">
-                    <h1>个人委托申报协议</h1>
-                    <p>本人承诺所购买商品系个人合理自用，现委托商家代理申报，代缴税款等通关事宜，本人保证遵守《海关法》和国家相关法律法规，保证所提供的身份信息和收货信息真是完整，无侵犯他人权益的行为，以上委托关系如实填写，本人愿意接受海关，检查检疫机构及其他监管部门的监管，并承担相应法律责任。</p>
-                </div>
-
-                <div class="gg">
-                    <p>应付余额：<span>￥<font>{{$totalPrice}}元</font></span></p>
-                </div>
-                <a href="order_1.html"><input type="submit" value="确认提交订单" ></a>
-                <a href="order_1.html"><input type="submit" value="取消订单" ></a>
+        <div class="fr">
+            <div class="c_r_t">
+                <ul>
+                    <li class="current"><a href="#">所有订单</a></li>
+                </ul>
+                <a href="<?php echo route('home.order.laJiOrders');?>" class="laji">订单回收站</a>
                 <div class="clear"></div>
             </div>
+            <!----------------公告---------------->
+            <div class="gonggao">未付款订单请尽快付款!!</div>
+            <!----------------搜索---------------->
+            @if (session('success'))
+                <div class="alert alert-success"style="color: green;font-size: 18px;margin-top: 10px" >
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if (session('error'))
+                <div class="alert alert-danger" style="color: red;font-size: 18px;margin-top: 10px">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+
+
+        <!---------------订单列表----------------->
+            <div class="c_r_o">
+                <!------------表单------------->
+                @foreach($orders as $order)
+
+
+                    @if($order->status !=5)
+
+
+
+                    <div style="background-color: #ebebeb">
+                    <div class="ttt" style="margin-left: 20px;">
+                        <span style="font-size: 13px;">订单号：{{$order->order_number}}</span>
+                        <span style="font-size: 13px">下单时间：{{$order->created_at}}</span>
+                    </div>
+                    <table>
+                        <tr>
+                            <th style="width: 200px;">商品</th>
+                            <th style="width: 90px;">产品基数</th>
+                            <th style="width: 90px;">售价（元）</th>
+                            <th style="width: 90px;">数量</th>
+                            <th style="width: 90px;">价格</th>
+                        </tr>
+
+
+                        @foreach($order->orderGoods as $k=>$orderGood)
+
+                            <tr>
+                                <td>
+                                    <div class="ff_one">
+                                        <div class="pic"><img style="width: 75px;height: 75px"
+                                                              src="{{$orderGood->cart->good->goodModel->image_path}}">
+                                        </div>
+                                        <div class="miaoshu"><a href="#">{{$orderGood->cart->good->good_name}} &nbsp;
+                                                &nbsp; {{$orderGood->cart->goodGuige->guige}} &nbsp;
+                                                &nbsp;{{$orderGood->cart->goodColor->color}}  </a></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ff_two">
+                                        <p>{{$orderGood->cart->price_number}} {{$orderGood->cart->good->goodModel->price_desc}}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ff_two">
+                                        <p>{{$orderGood->cart->price}}
+                                            / {{$orderGood->cart->good->goodModel->price_desc}} </p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ff_three">{{$orderGood->cart->number}}</div>
+                                </td>
+                                <td>
+                                    <div class="ff_two">
+                                        <p>{{$orderGood->cart->price*$orderGood->cart->number*$orderGood->cart->price_number}}</p>
+
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                        @endforeach
+
+
+                        <tr>
+                            <th style="float: left;text-align: left;margin-left: 20px;">总计（元）:{{$order->total_price}}</th>
+                        </tr>
+                        <tr>
+                            <th style="float: left;text-align: left;margin-left: 20px;">商品总数:{{$order->total_number}}</th>
+                        </tr>
+                        <tr>
+                            <th style="float: left;text-align: left;margin-left: 20px;">订单状态:
+                                @if($order->status == 0)
+                                    <span style="color: red">未付款</span>
+                                @elseif($order->status == 1)
+                                    <span style="color: red">未处理</span>
+                                @elseif($order->status == 2)
+                                    <span style="color: green">已处理</span>
+                                @elseif($order->status == 3)
+                                    <span style="color: blue">已收货,订单已成交</span>
+                                @endif
+                            </th>
+                        </tr>
+                        <tr>
+                            <th style="float: left;text-align: left;margin-left: 20px;">
+                                操作:
+                                @if($order->status==0)
+
+                                    <a href="<?php echo route('home.order.fukuan',['id'=>$order->id]);?>" style="color: green"><button type="button" style="margin-left: 15px;color: green; height: 25px">确认付款</button></a>
+                                    <a href="<?php echo route('home.order.softDelete',['id'=>$order->id]);?>" style="color: red"  onclick="return confirm('确认要删除该订单吗?删除的订单可在回收站查看!!!');"><button type="button" style="margin-left: 15px;color: red; height: 25px">删除订单</button></a>
+
+                                @elseif($order->status==2)
+
+                                <a href="<?php echo route('home.order.shouhuo',['id'=>$order->id]);?>" style="color: green"><button type="button" style="margin-left: 15px;color: green; height: 25px">确认收货</button></a>
+                                <a href="<?php echo route('home.order.softDelete',['id'=>$order->id]);?>" style="color: red"  onclick="return confirm('确认要删除该订单吗?删除的订单可在回收站查看!!!');"><button type="button" style="margin-left: 15px;color: red; height: 25px">删除订单</button></a>
+
+                                @else
+                                <a href="<?php echo route('home.order.softDelete',['id'=>$order->id]);?>" style="color: red"  onclick="return confirm('确认要删除该订单吗?删除的订单可在回收站查看!!!');"><button type="button" style="margin-left: 15px;color: red; height: 25px">删除订单</button></a>
+                                @endif
+
+                            </th>
+
+                        </tr>
+
+
+                    </table>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
+
+                    @endif
+                @endforeach
+
+            </div>
+            <!------------------热销推荐--------------------->
         </div>
+        <div class="clear"></div>
 
     </div>
+
+
+
+
+
 
 
 

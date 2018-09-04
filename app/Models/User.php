@@ -34,15 +34,20 @@ class User extends Model
     //获取用户购物车
     public function carts()
     {
-        //用户表和收货地址表是一对多关系
+        //用户表和购物车是一对多关系
         return $this->hasMany('App\Models\Cart','user_id');
     }
 
     //获取用户提交订单前信息
     public function beforeOrders()
     {
-        //用户表和收货地址表是一对多关系
         return $this->hasMany('App\Models\BeforeOrders','user_id');
+    }
+
+    //获取用户订单信息
+    public function orders()
+    {
+        return $this->hasMany('App\Models\Order','user_id');
     }
 
 }

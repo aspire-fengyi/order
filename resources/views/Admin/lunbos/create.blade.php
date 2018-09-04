@@ -56,7 +56,7 @@
 									<span class="input-group-addon">
 										<i class="fa    fa-plus-circle"></i>
 									</span>
-                            <input name="lunbo_http" type="text" class="form-control1" placeholder="请输入链接地址(http://www.baidu.com)" required="" value="{{old('lunbo_http')}}">
+                            <input name="lunbo_http" type="text" class="form-control1" placeholder="请输入链接地址(http://www.baidu.com)" value="{{old('lunbo_http')}}">
                         </div>
                     </div>
                 </div>
