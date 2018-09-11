@@ -67,10 +67,10 @@ class IndexController extends Controller
             $data = self::getPidLeaders();
 
             //获取该搜索下的产品
-            $goods = Good::where('good_name','like','%'. $sousuo.'%')->paginate(12);
+            $goods = Good::where('good_name','like','%'. $sousuo.'%'  && 'status','!=',0)->paginate(12);
 
             //获取该搜索下的数量
-            $n = Good::where('good_name','like','%'. $sousuo.'%')->count();
+            $n = Good::where('good_name','like','%'. $sousuo.'%'  && 'status','!=',0)->count();
 
             //返回位置及数量
             return view ('Home.index',['data'=>$data,'goods'=>$goods,'sousuo'=>$sousuo,'n'=>$n]);
@@ -84,7 +84,7 @@ class IndexController extends Controller
         //如果没有传递位置id
         if (!$id) {
             //直接获取商品,分页功能
-            $goods = Good::paginate(12);
+            $goods = Good::where(  'status','!=',0)->paginate(12);
 
             return view ('Home.index',['data'=>$data,'lunbos'=>$lunbos,'goods'=>$goods]);
 
@@ -96,13 +96,13 @@ class IndexController extends Controller
             if ($feidingjifenlei) {
 
                 //获取分类下的产品
-                $goods = Good::where('category_id', $id)->paginate(12);
+                $goods = Good::where('category_id', $id  && 'status','!=',0)->paginate(12);
 
                 //找到当前位置
                 $weizhi = $feidingjifenlei->category_name;
 
                 //找到此分类下面有多少商品
-                $n = DB::table('goods')->where('category_id',$id)->count();
+                $n = DB::table('goods')->where('category_id',$id && 'status','!=',0)->count();
 
                 //返回位置及数量
                 return view ('Home.index',['data'=>$data,'goods'=>$goods,'weizhi'=>$weizhi,'n'=>$n]);

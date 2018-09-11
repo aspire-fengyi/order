@@ -48,7 +48,7 @@ Route::group(['prefix'=>'admin','middleware' => 'adminFlag'],function(){
     //后台添加管理员路由
     Route::get('/users/admin_create','Admin\IndexController@admin_create')->name('admin.users.admin_create');
 
-    //后台添加管理员出力路由
+    //后台添加管理处理路由
     Route::post('/users/admin_add','Admin\IndexController@admin_add')->name('admin.users.admin_add');
 
     //后台显示管理员路由

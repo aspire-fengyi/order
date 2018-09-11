@@ -11,8 +11,17 @@ class OrdersController extends Controller
     //
 
     //全部订单列表
-    function index()
+    function index(Request $request)
     {
+
+        $data = $request->all();
+
+        if(isset($data['order_number'])){
+            $orders = Order::where('order_number',$data['order_number'])->orderBy('id','desc')->get();
+            return view('Admin/orders/index',['orders'=>$orders]);
+
+        }
+
         $orders = Order::orderBy('id','desc')->get();
 
         return view('Admin/orders/index',['orders'=>$orders]);

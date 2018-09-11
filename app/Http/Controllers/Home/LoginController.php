@@ -19,6 +19,7 @@ class LoginController extends Controller
     function doLogin(Request $request)
     {
 
+
         //验证码判断
         $this->validate($request, [
             'name' => 'required',

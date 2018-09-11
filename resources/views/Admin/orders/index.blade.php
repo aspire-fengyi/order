@@ -24,13 +24,20 @@
 
     <div class="clearfix text-center"></div>
 
+
     <div style="margin-top: -50px">
         <div class="agile-grids">
             <!-- tables -->
 
+
             <div class="agile-tables">
 
-
+                <form action="<?php echo route('admin.orders.index'); ?>" method="get">
+                <div>
+                    <input type="text" style="width: 300px" name="order_number" placeholder="请输入产品编号">
+                    <input type="submit" value="搜索订单号">
+                </div>
+                </form>
                 <table id="table-two-axis" class="two-axis text-center">
                     <thead>
                     <tr class="text-center">

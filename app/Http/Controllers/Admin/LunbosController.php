@@ -19,6 +19,7 @@ class LunbosController extends Controller
     {
         $data = $request->all();
 
+        dd($data['image']);
         //处理照片
         if ($request->hasFile('image')) {
 
