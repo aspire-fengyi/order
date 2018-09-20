@@ -65,7 +65,7 @@
     <script>
         $(function () {
             $('.daohang2').click(function () {
-                var m = $(this).index() + 1;
+                var m = $(this).index()+2;
                 $('.xianshi2').css('display', 'none');
                 $('.xianshi2').eq(m).css('display', 'block');
 
@@ -124,7 +124,7 @@
                                             <tr class="text-center">
                                                 <th class="text-center">产品id</th>
                                                 <th class="text-center">编码</th>
-                                                <th class="text-center"><a
+                                                <th class="text-center" style="width:200px"><a
                                                             href="<?php echo route('admin.goods.goodColor', ['id' => $good->id]); ?>"
                                                             style="text-decoration:none; color:#a2d200; font-size: 16px"><b>颜色</b></a>
                                                 </th>
@@ -148,11 +148,11 @@
                                             <tr>
                                                 <td class="text-center">{{$good->id}}</td>
                                                 <td class="text-center">{{$goodGuige->bianma}}</td>
-                                                <td class="text-center">
+                                                <td class="text-center" style="width:200px">
                                                     <ul style="list-style: none;" class="text-left">
                                                         @foreach($good->goodColors as $goodColor)
 
-                                                            <li style="margin: 5px 0;">
+                                                            <li style="margin: 5px 0; ">
                                                                 {{$goodColor->color}}
                                                             </li>
 

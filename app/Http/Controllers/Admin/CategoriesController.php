@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Good;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
@@ -106,7 +107,25 @@ class CategoriesController extends Controller
     function delete(Request $request, $id)
     {
 
-        echo '稍后才会有修改项';
+        $goods = Good::where('category_id',$id)->first();
+
+
+        $parent_data = Categories::where('pid', $id)->first();
+
+
+        if ($goods) {
+            return back()->with('error', '当前类别下存在商品，不可以删除');
+        }
+
+        if ($parent_data) {
+            return back()->with('error', '当前类别下有子分类，不可以删除');
+        }
+
+        $res = Categories::destroy($id);
+
+        if ($res) {
+            return back()->with('success', '删除产品类别成功');
+        }
 
     }
 

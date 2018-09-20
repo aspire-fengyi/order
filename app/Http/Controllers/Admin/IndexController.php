@@ -150,7 +150,7 @@ class IndexController extends Controller
 
     }
 
-    //后台管理员分级显示列表
+    //后台管理员显示列表
     function admin_index()
     {
 
@@ -311,14 +311,12 @@ class IndexController extends Controller
     function admin_leader_delete(Request $request, $id)
     {
 
-        $data = AdminLeader::find($id);
+        $data = AdminUser::where('leader_id',$id)->first();
 
         $parent_data = AdminLeader::where('pid', $id)->first();
 
-        $arr = $data->users;
 
-
-        if ($arr) {
+        if ($data) {
             return back()->with('error', '当前类别下存在管理员，不可以删除');
         }
 
