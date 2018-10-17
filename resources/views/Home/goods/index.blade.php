@@ -16,7 +16,6 @@
             <div class="left">
                 <div class="left_top">
                     <img  style="height: 310px;width: 400px" src="{{$good->goodModel->image_path}}" class="jqzoom" >
-                    <a href="#" class="search"></a>
                 </div>
                 <div class="pics">
                     <div id="scroll" class="owl-carousel">
@@ -95,10 +94,7 @@
                         <td class="one">运费</td>
                         <td>免运费</td>
                     </tr>
-                    <tr>
-                        <td class="one">描述</td>
-                        <td>{{$good->goodModel->desc}}</td>
-                    </tr>
+
                     <tr>
                         <td class="one">数量</td>
                         <td>
@@ -111,6 +107,9 @@
                         </td>
                     </tr>
                 </table>
+                <div style="width: 600px">
+                <p style="margin-left: 10px">描述:{{$good->goodModel->desc}}</p>
+                </div>
                 <!-----------------购买按钮--------------->
                 <div class="shopping">
                     <a href="<?php echo route('home.goods.info',['id'=>$good->id]);?>" class="buy">立即购买</a>

@@ -184,15 +184,20 @@ class GoodsController extends Controller
 
         $good_guige->daili_price = $data['daili_price'];
 
-        $good_guige->price_number = $data['price_number'];
 
         $res4 = $good_guige->save();
+
+        //获取最后一条插入数据的id
+        $good_guige_id = DB::getPdo()->lastInsertId();
+
+        //转换数据类型
+        $good_guige_id = intval($id);
 
 
         //添加商品颜色
         $good_color = new GoodColor();
 
-        $good_color->good_id = $good_id;
+        $good_color->guige_id = $good_guige_id;
 
         $good_color->color = $data['color'];
 
@@ -243,8 +248,6 @@ class GoodsController extends Controller
 
 
         $colors = GoodColor::where('good_id',$id)->first();
-
-
 //        $guiges = $good->goodGuiges;
 //
 //        $colors = $good->goodColors;
@@ -256,9 +259,6 @@ class GoodsController extends Controller
         if($colors){
             return back()->with('error', '请先清空产品规格，再进行删除操作');
         }
-
-
-
 
 
         $goodModel = $good->goodModel;
@@ -359,10 +359,17 @@ class GoodsController extends Controller
     //显示商品颜色详情页面
     function goodColor(Request $request,$id)
     {
-        $good = Good::find($id);
+        $guige = GoodGuige::find($id);
 
 
-        return view ('Admin.goods.colors.index',['good'=>$good]);
+//        dd($guige);
+        $good = $guige->whichGood;
+
+        $colors = $guige->goodColors;
+
+//        dd($colors);
+
+        return view ('Admin.goods.colors.index',['guige'=>$guige,'good'=>$good]);
     }
 
     //商品颜色添加
@@ -409,7 +416,7 @@ class GoodsController extends Controller
 
         $good_color -> color = $data['color'];
 
-        $good_color-> good_id =  $id;
+        $good_color-> guige_id =  $id;
 
         $good_color-> color_image_path =  $data['color_image_path'];
 
@@ -599,7 +606,6 @@ class GoodsController extends Controller
 
         $good_guige -> guige = $data['guige'];
 
-        $good_guige -> guige_desc = $data['guige_desc'];
 
         $good_guige->shichang_price = $data['shichang_price'];
 

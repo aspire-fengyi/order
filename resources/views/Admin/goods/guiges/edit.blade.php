@@ -32,7 +32,7 @@
 
     {{--管理员添加--}}
     <div class="grid-form1">
-        <h3>修改规格添加</h3>
+        <h3>产品规格修改</h3>
         <div class="panel-body">
             <form action="<?php echo route('admin.goods.goodGuigeUpdate', ['id' => $guige->id]);?>" method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -73,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <label class="col-md-2 control-label">市场价</label>

@@ -65,7 +65,7 @@
     <script>
         $(function () {
             $('.daohang2').click(function () {
-                var m = $(this).index()+2;
+                var m = $(this).index()+1;
                 $('.xianshi2').css('display', 'none');
                 $('.xianshi2').eq(m).css('display', 'block');
 
@@ -124,9 +124,8 @@
                                             <tr class="text-center">
                                                 <th class="text-center">产品id</th>
                                                 <th class="text-center">编码</th>
-                                                <th class="text-center" style="width:200px"><a
-                                                            href="<?php echo route('admin.goods.goodColor', ['id' => $good->id]); ?>"
-                                                            style="text-decoration:none; color:#a2d200; font-size: 16px"><b>颜色</b></a>
+                                                <th class="text-center" style="width:200px">
+                                                          颜色
                                                 </th>
                                                 <th class="text-center"><a
                                                             href="<?php echo route('admin.goods.goodGuige', ['id' => $good->id]); ?>"
@@ -139,25 +138,84 @@
                                                             href="<?php echo route('admin.goods.goodPicture', ['id' => $good->id]); ?>"
                                                             style="text-decoration:none; color:#a2d200; font-size: 16px"><b>产品图</b></a>
                                                 </th>
-                                                <th class="text-center">操作</th>
+                                                <th class="text-center">
+
+
+                                                            <a href="<?php echo route('admin.goods.delete', ['id' => $good->id]); ?>"
+                                                               onclick="return confirm('确认要删除该商品吗?');">
+                                                                <button class="btn btn-danger text-center"
+                                                                        style="width: 110px;">删除
+                                                                </button>
+                                                            </a>
+
+                                                </th>
                                             </tr>
                                             </thead>
                                             <tbody>
+
+
+
+                                            @if(empty($good->goodGuiges))
+                                            <tr>
+                                                <td class="text-center">{{$good->id}}</td>
+                                                <td class="text-center">###</td>
+                                                <td class="text-center" style="width:200px">
+                                                   ###
+
+                                                </td>
+                                                <td class="text-center">
+                                                    ###
+
+                                                </td>
+                                                <td class="text-center">
+                                                    ###
+                                                </td>
+
+
+                                                <td class="text-center">
+                                                   ###
+                                                </td>
+                                                <td class="text-center">###</td>
+                                                <td class="text-center">
+                                                    <img src="{{$good->goodModel->image_path}}" alt="产品缩略图"
+                                                         style="height: 80px;width: 150px">
+                                                </td>
+                                                <td class="text-center">
+                                                    <ul style="list-style: none;" class="text-center">
+
+
+                                                        <li style="margin: 5px 0;" class="text-center">
+                                                            <a href="<?php echo route('admin.goods.edit', ['id' => $good->id]); ?>"
+                                                               onclick="return confirm('确认要修改该商品?');">
+                                                                <button class="btn btn-info text-center"
+                                                                        style="width: 110px;">修改
+                                                                </button>
+                                                            </a>
+                                                        </li>
+                                                        <li style="margin: 5px 0;" class="text-center">
+                                                            <a href="<?php echo route('admin.goods.delete', ['id' => $good->id]); ?>"
+                                                               onclick="return confirm('确认要删除该商品吗?');">
+                                                                <button class="btn btn-danger text-center"
+                                                                        style="width: 110px;">删除
+                                                                </button>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                </td>
+                                            </tr>
+
+
+                                            @endif
+
 
                                             @foreach($good->goodGuiges as $goodGuige )
                                             <tr>
                                                 <td class="text-center">{{$good->id}}</td>
                                                 <td class="text-center">{{$goodGuige->bianma}}</td>
                                                 <td class="text-center" style="width:200px">
-                                                    <ul style="list-style: none;" class="text-left">
-                                                        @foreach($good->goodColors as $goodColor)
-
-                                                            <li style="margin: 5px 0; ">
-                                                                {{$goodColor->color}}
-                                                            </li>
-
-                                                        @endforeach
-                                                    </ul>
+                                                    <a href="<?php echo route('admin.goods.goodColor', ['id' => $goodGuige->id]); ?>"
+                                                            style="text-decoration:none; color:#a2d200; font-size: 16px"><b>产看颜色</b></a>
 
                                                 </td>
                                                 <td class="text-center">

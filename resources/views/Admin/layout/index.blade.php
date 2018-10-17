@@ -277,6 +277,21 @@
                         <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.users.index_fenzu') ?>">合作商分组</a></li>
                     </ul>
                 </li>
+                <li id="menu-academico"><a href="#"><i class="fa fa-align-justify" aria-hidden="true"></i><span>派单</span>
+                        <span class="fa fa-angle-right" style="float: right"></span>
+                        <div class="clearfix"></div>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        @if(session('adminUser')['leader_id']==1)
+                            <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.paidan.create') ?>">派单</a></li>
+                        @endif
+
+                        <li id="menu-academico-avaliacoes"><a href="<?php echo route('admin.paidan.index') ?>">派单详情</a></li>
+
+                    </ul>
+                </li>
+
+
                 <li id="menu-academico"><a href="#"><i class="fa    fa-certificate" aria-hidden="true"></i><span>产品类别管理</span>
                         <span class="fa fa-angle-right" style="float: right"></span>
                         <div class="clearfix"></div>

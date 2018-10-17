@@ -23,26 +23,13 @@
     <script type="text/javascript" src="/homeTemplate/js/slide.js"></script>
 </head>
 <body>
-<script>
-    $(function(){
-        $('.nav ul li').hover(function(){
-            $(this).children(".details").show();
-        },function(){
-            $(this).children(".details").hide();
-        });
-        $('#my').hover(function(){
-            $(this).find("div").show();
-        },function(){
-            $(this).find("div").hide();
-        });
-    });
-</script>
+
 <!------------顶部---------------->
 <div class="top">
     <div class="wt1080">
         <div class="fl">
             @if(session('homeFlag'))
-                <a href="/">商城首页</a>&emsp;|&emsp;<a href="/home/logout/" style="color: #ff9900">退出</a>
+                <span style="color: red"> {{session('homeUser')['name']}} 您好,欢迎登陆 </span> <a href="/"> 商城首页</a>&emsp;|&emsp;<a href="/home/logout/" style="color: #ff9900">退出</a>
 
             @else
                 <a href="/">商城首页</a>&emsp;|&emsp;请&emsp;<a href="/home/login/" style="color: #ff9900">登陆</a>&emsp;或&emsp;<a href="#">立即注册</a>
@@ -96,6 +83,29 @@
     <div class="clear"></div>
 </div>
 <!--------------导航------------------>
+
+<script>
+    $(function(){
+        $('.nav ul li').hover(function(){
+            $(this).children(".details").show();
+        },function(){
+            $(this).children(".details").hide();
+        });
+
+        $('.erjilanmu').hover(function(){
+            $(this).children(".shangpinming").show();
+        },function(){
+            $(this).children(".shangpinming").hide();
+        });
+
+        $('#my').hover(function(){
+            $(this).find("div").show();
+        },function(){
+            $(this).find("div").hide();
+        });
+    });
+</script>
+
 <div class="nav">
     <div class="wt1080">
         <ul>
@@ -107,16 +117,25 @@
                 <a href="javascript:;"><span>{{$category->category_name}}</span></a>
                 <div class="details">
 
-                    @foreach($category->sub as $category2 )
-                    <div class="item">
-                        <p class="title"><a href="<?php echo route('home.index',['id'=>$category2->id]);?>">{{$category2->category_name}}</a></p>
-                        @foreach($category2->goods as $good)
-                        <div class="ctgnamebox">
-                            <a href="<?php echo route('home.goods.index',['id'=>$good->id]);?>" class="current">{{$good->good_name}}</a>
-                        </div>
-                        @endforeach
-                    </div>
-                     @endforeach
+                        @foreach($category->sub as $category2 )
+                            <div class="item">
+                                <div class="erjilanmu">
+                                    <p class="title"><a href="<?php echo route('home.index',['id'=>$category2->id]);?>">{{$category2->category_name}}</a></p>
+
+
+                                    <div class="shangpinming" style="display: none">
+                                        @foreach($category2->goods as $good)
+                                                <div class="ctgnamebox ">
+                                                    <a   href="<?php echo route('home.goods.index',['id'=>$good->id]);?>" class="current">{{$good->good_name}}</a>
+                                                </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                         @endforeach
 
                 </div>
             </li>

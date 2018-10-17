@@ -47,7 +47,7 @@ class OrderController extends Controller
             $cart = Cart::find($cart_id);
 
             //订单商品总价格
-            $total_price += $cart->number * $cart->price_number * $cart->price;
+            $total_price += $cart->number * $cart->price;
 
             //订单商品总数量
             $total_number += $cart->number;
@@ -171,8 +171,8 @@ class OrderController extends Controller
         $laJiOrders = Order::onlyTrashed()->where('user_id', $user_id)->get();
 
         return view('Home.orders.huishouzhan', ['laJiOrders' => $laJiOrders]);
-
     }
+
 
     //恢复订单路由
     function huiFuOrder(Request $request, $id)

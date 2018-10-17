@@ -35,24 +35,6 @@
                     </tr>
 
                     <tr>
-                        <td>产品颜色：</td>
-                        <td>
-                            <ul class="cp_list_style">
-                                @foreach($good->goodColors as $goodColor)
-                                    <li class="clearfix">
-                                        <img src="{{$goodColor -> color_image_path}}"/>
-
-                                        <input type="radio" value="{{$goodColor -> id}}" required="" name="color_id"
-                                               id="color{{$goodColor->id}}"
-                                               style="position: absolute; clip: rect(0, 0, 0, 0);"><label
-                                                for="color{{$goodColor->id}}"><span>{{$goodColor -> color}}</span></label>
-                                    </li>
-                                @endforeach
-
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>产品名称：</td>
                         <td>
                             {{$good->good_name}}
@@ -74,6 +56,46 @@
                     </tr>
 
                 </table>
+
+
+                <div style="margin-top: 30px">
+
+                </div>
+
+                <div>
+                    @foreach($good->goodGuiges as $guige)
+                        <div class="shangpinyanse"  style="display: none">
+                            <table class="cp_des_tab">
+
+                                <tr>
+
+                                    <td colspan="2" style="color: red"> 请选择颜色</td>
+                                </tr>
+
+
+                                <tr>
+                                <td colspan="2">
+                                    <ul class="cp_list_style">
+                                        @foreach($guige->goodColors as $goodColor)
+                                            <li class="clearfix">
+                                                <img src="{{$goodColor -> color_image_path}}"/>
+
+                                                <input type="radio" value="{{$goodColor -> id}}" required="" name="color_id"
+                                                       id="color{{$goodColor->id}}"
+                                                       style="position: absolute; clip: rect(0, 0, 0, 0);"><label
+                                                        for="color{{$goodColor->id}}"><span>{{$goodColor -> color}}</span></label>
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    @endforeach
+                </div>
+
 
                 <div style="margin-top: 30px">
 
@@ -153,6 +175,20 @@
             })
         });
     </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".shangpinguige").click(function () {
+                var n = $(this).index()-1;
+
+                console.log(n);
+
+                $('.shangpinyanse').eq(n).css('display', 'block').siblings().css('display', 'none');
+
+            })
+        });
+    </script>
+
     </body>
 
 @endsection

@@ -19,6 +19,9 @@ class CartController extends Controller
 
 //        dd($data);
 
+
+
+
         $id = session('homeUser')['id'];
 
         $user = User::find($id);
@@ -47,15 +50,15 @@ class CartController extends Controller
         $good = $goodGuige->whichGood;
 
 
-        if (session('homeUser')['jibie'] == 0) {
-            $price = $goodGuige->shichang_price;
-        } elseif (session('homeUser')['jibie'] == 1) {
+        if  (session('homeUser')['jibie'] == 0) {
             $price = $goodGuige->hezuo_price;
-        } elseif (session('homeUser')['jibie'] == 2) {
+        } elseif (session('homeUser')['jibie'] == 1) {
             $price = $goodGuige->daili_price;
         }else{
             return redirect('/home/login/');
         }
+
+
 
         $cart = new Cart;
 

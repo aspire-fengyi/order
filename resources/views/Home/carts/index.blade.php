@@ -74,7 +74,7 @@
                                         <input name="" type="text" value="{{$cart->number}}" readonly>
                                     </div>
                                 </div>
-                                <div class="g_five"><p>￥{{$cart->number * $cart->price_number * $cart->price}}</p></div>
+                                <div class="g_five"><p>￥{{$cart->number * $cart->price}}</p></div>
 
                                 <a href="<?php echo route('home.carts.delete', ['id' => $cart->id])?>">
                                     <div class="g_six"><span></span></div>

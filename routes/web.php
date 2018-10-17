@@ -124,6 +124,30 @@ Route::group(['prefix'=>'admin','middleware' => 'adminFlag'],function(){
 
     /**
      *
+     * 派单路由
+     *
+     */
+
+    //后台显示派单
+    Route::get('/paidan/index','Admin\PaiDanController@index')->name('admin.paidan.index');
+
+    //创建派单前台显示
+    Route::get('/paidan/create','Admin\PaiDanController@create')->name('admin.paidan.create');
+
+    //创建派单后台处理
+    Route::post('/paidan/add','Admin\PaiDanController@add')->name('admin.paidan.add');
+
+    //后台删除派单
+    Route::get('/paidan/delete/{id}','Admin\PaiDanController@delete')->name('admin.paidan.delete');
+
+
+
+
+
+
+
+    /**
+     *
      * 合作商地址路由
      *
      */
@@ -432,6 +456,19 @@ Route::group(['prefix'=>'home','middleware' => 'homeFlag'],function(){
 
     //修改密码处理路由
     Route::post('/user/passwordUpdate/{id}','Home\IndexController@passwordUpdate')->name('home.user.passwordUpdate');
+
+
+    /**
+     *
+     * 派单路由
+     *
+     */
+
+    //显示全部派单路由
+    Route::get('/paidan/index','Home\PaiDanController@index')->name('home.paidan.index');
+
+    //接单路由
+    Route::get('/jiedan/{id}','Home\PaiDanController@jiedan')->name('home.jiedan');
 
 
 

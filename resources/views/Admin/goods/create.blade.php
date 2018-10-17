@@ -100,19 +100,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label">产品基数</label>
-                    <div class="col-md-8">
-                        <div class="input-group">
-									<span class="input-group-addon">
-										<i class="fa   fa-money"></i>
-									</span>
-                            <input name="price_number" type="text" class="form-control1" placeholder="如果是板材，将面积算出来，如果是线条，将长度写出来，价格单位，4舍5如保留两位小数" required="" value="{{old('price_desc')}}">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
                     <label class="col-md-2 control-label">对应规格描述</label>
                     <div class="col-md-8">
                         <div class="input-group">
@@ -159,7 +146,19 @@
                         </div>
                     </div>
                 </div>
-
+                <!--
+                <div class="form-group">
+                    <label class="col-md-2 control-label">价格基数</label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa   fa-money"></i>
+									</span>
+                            <input name="price_number" type="text" class="form-control1" placeholder="填写整数,比如1平米/米/张/桶 产品 的价格为10,就写1" required="" value="">
+                        </div>
+                    </div>
+                </div>
+                -->
                 <div class="form-group">
                     <label class="col-md-2 control-label">代理价</label>
                     <div class="col-md-8">

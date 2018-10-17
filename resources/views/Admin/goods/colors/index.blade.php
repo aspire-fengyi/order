@@ -19,7 +19,7 @@
         </div>
     @endif
 
-    <a href="<?php echo route('admin.goods.goodColorCreate', ['id' => $good->id]);?> "><button class="btn btn-primary">添加颜色</button></a>
+    <a href="<?php echo route('admin.goods.goodColorCreate', ['id' => $guige->id]);?> "><button class="btn btn-primary">添加颜色</button></a>
     <table id="table-force-off">
         <thead>
         <tr>
@@ -29,14 +29,14 @@
         </thead>
         <tbody>
         <tr>
-            <td class="text-center" >产品ID：{{$good->id}}</td>
+            <td class="text-center" >规格ID：{{$guige->id}}</td>
             <td class="text-center" >产品名称：{{$good->good_name}}</td>
             <td class="text-center" colspan=2>
                 <img src="{{$good->goodModel->image_path}}" alt="产品缩略图" style="height: 80px;width: 150px">
             </td>
             <td class="text-center" >操作</td>
         </tr>
-        @foreach($good->goodColors as $colors_date)
+        @foreach($guige->goodColors as $colors_date)
             <tr>
                 <td class="text-center">颜色：</td>
                 <td class="text-center">{{$colors_date->color}}</td>
@@ -45,9 +45,9 @@
                 </td>
                 <td class="text-center">
 
-                    <a href="<?php echo route('admin.goods.goodColorEdit', ['id' => $colors_date->id]);?> "><button class="btn btn-primary">修改</button></a>
+                  <!-- <a href="<?php echo route('admin.goods.goodColorEdit', ['id' => $colors_date->id]);?> "><button class="btn btn-primary">修改</button></a> -->
 
-                    <a href="<?php echo route('admin.goods.goodColorDelete', ['id' => $colors_date->id]);?> "><button class="btn btn-danger">删除</button></a>
+                      <a href="<?php echo route('admin.goods.goodColorDelete', ['id' => $colors_date->id]);?> "><button class="btn btn-danger">删除</button></a>
 
                 </td>
 

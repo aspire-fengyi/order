@@ -50,4 +50,10 @@ class User extends Model
         return $this->hasMany('App\Models\Order','user_id');
     }
 
+    //获取用户派单
+    public function paidans()
+    {
+        return $this->hasMany('App\Models\PaiDan','user_id');
+    }
+
 }

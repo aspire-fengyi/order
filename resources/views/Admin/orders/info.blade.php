@@ -134,7 +134,6 @@
             <td>产品名称</td>
             <td>产品编码</td>
             <td>产品规格</td>
-            <td>产品基数</td>
             <td>颜色</td>
             <td>购买数量</td>
             <td>单价</td>
@@ -145,9 +144,8 @@
             <td>{{$orderGood->cart->good->good_name}}</td>
             <td>{{$orderGood->cart->goodGuige->bianma}}</td>
             <td>{{$orderGood->cart->goodGuige->guige}}</td>
-            <td>{{$orderGood->cart->price_number}} {{$orderGood->cart->good->goodModel->price_desc}}</td>
             <td>{{$orderGood->cart->goodColor->color}}</td>
-            <td>{{$orderGood->cart->number}}</td>
+            <td>{{$orderGood->cart->number}}  {{$orderGood->cart->good->goodModel->price_desc}}</td>
             <td>￥{{$orderGood->cart->price}}</td>
             <td> ￥{{$orderGood->cart->price * $orderGood->cart->number * $orderGood->cart->price_number}}</td>
         </tr>

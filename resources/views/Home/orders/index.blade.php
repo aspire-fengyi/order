@@ -12,6 +12,7 @@
                 <li class="current"><a href="/home/orders/index/">我的订单</a></li>
 
                 <li><a href="/home/carts/index/">我的购物车</a></li>
+                <li><a href="/home/paidan/index/">我的派单</a></li>
             </ul>
         </div>
         <div class="fr">
@@ -56,7 +57,7 @@
                     <table>
                         <tr>
                             <th style="width: 200px;">商品</th>
-                            <th style="width: 90px;">产品基数</th>
+
                             <th style="width: 90px;">售价（元）</th>
                             <th style="width: 90px;">数量</th>
                             <th style="width: 90px;">价格</th>
@@ -76,11 +77,7 @@
                                                 &nbsp;{{$orderGood->cart->goodColor->color}}  </a></div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="ff_two">
-                                        <p>{{$orderGood->cart->price_number}} {{$orderGood->cart->good->goodModel->price_desc}}</p>
-                                    </div>
-                                </td>
+
                                 <td>
                                     <div class="ff_two">
                                         <p>{{$orderGood->cart->price}}
@@ -106,7 +103,7 @@
                             <th style="float: left;text-align: left;margin-left: 20px;">总计（元）:{{$order->total_price}}</th>
                         </tr>
                         <tr>
-                            <th style="float: left;text-align: left;margin-left: 20px;">商品总数:{{$order->total_number}}</th>
+                            <th style="float: left;text-align: left;margin-left: 20px;">商品总数:{{$order->total_number}}   </th>
                         </tr>
                         <tr>
                             <th style="float: left;text-align: left;margin-left: 20px;">订单状态:

@@ -72,7 +72,7 @@ class UsersController extends Controller
 
     }
 
-    //后台管理员分级显示列表
+    //后台管理员显示列表
     function index()
     {
 

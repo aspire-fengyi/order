@@ -127,10 +127,14 @@
                 @foreach($goods as $good)
                     <li>
                         <div class="pic">
+                            <p style="color: #00aced">{{$good->good_name}}</p>
                             <a href="<?php echo route('home.goods.index', ['id' => $good->id]);?>">
                                 <img style="width: 230px;height: 220px" src="{{$good->goodModel->image_path}}"></a>
                         </div>
-                        <p class="one" style="margin-bottom: 10px"><a href="<?php echo route('home.goods.index', ['id' => $good->id]);?>">{{$good->good_name}}{{$good->goodModel->desc}} </a></p>
+                        <div style="height: 1px">
+
+                        </div>
+                        <p class="one" ><a  style="height: 15x" href="<?php echo route('home.goods.index', ['id' => $good->id]);?>">{{$good->goodModel->desc}} </a></p>
                         @foreach($good->goodGuiges as $k=>$goodGuige )
                             @if($k==0)
 
